@@ -51,7 +51,7 @@ header {
             rgba(38, 58, 41, 0.55),
             rgba(38, 58, 41, 0.55)
         ),
-        url("imagens/background logo.jpeg");
+        url("logotipo de fundo.jpeg");
 
     background-size: cover;
     background-position: center;
@@ -158,7 +158,7 @@ section p {
             rgba(38, 58, 41, 0.65),
             rgba(38, 58, 41, 0.65)
         ),
-        url("imagens/fundov1.jpg");
+        url("fundov1.jpg");
 
     background-size: cover;
     background-position: center;
@@ -255,7 +255,7 @@ section p {
             rgba(242, 193, 78, 0.45),
             rgba(242, 193, 78, 0.45)
         ),
-        url("imagens/cortejo.jpeg");
+        url("cortejo.jpeg");
 
     background-size: cover;
 
@@ -307,7 +307,7 @@ section p {
             rgba(242, 193, 78, 0.45),
             rgba(242, 193, 78, 0.45)
         ),
-        url("imagens/abadas.png");
+        url("abadas.png");
 
     background-size: cover;
 
@@ -397,7 +397,7 @@ section p {
             rgba(38, 58, 41, 0.70),
             rgba(38, 58, 41, 0.70)
         ),
-        url("imagens/fundov2.jpg");
+        url("fundov2.jpg");
 
     background-size: cover;
 
