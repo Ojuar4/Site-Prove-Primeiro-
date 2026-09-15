@@ -6,12 +6,34 @@
 
     <link rel="stylesheet" href="style.css" />
 
-    <title>PROVE PRIMEIRO</title>
+    <title>Prove Primeiro — Carnaval de Belo Horizonte</title>
   </head>
 
   <body>
-    <header>
-      <img src="imagens/logo,png.jpeg" alt="Logo Prove Primeiro" />
+    <!-- CONFETES (gerados via JavaScript) -->
+    <div class="confetes" id="confetes" aria-hidden="true"></div>
+
+    <!-- NAVEGAÇÃO FIXA -->
+    <nav class="nav" id="nav">
+      <a href="#topo" class="nav-marca">
+        <img src="imagens/logo.jpeg" alt="Prove Primeiro" id="navLogo" />
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#cortejo" data-nav>Cortejo</a>
+        <a href="#abadas" data-nav>Abadás</a>
+        <a href="#sobre" data-nav>Sobre nós</a>
+      </div>
+    </nav>
+
+    <header id="topo">
+      <img src="imagens/logo.jpeg" alt="Logo Prove Primeiro" onerror="this.style.display='none'" />
 
       <h1>PROVE PRIMEIRO</h1>
 
@@ -34,34 +56,56 @@
         </div>
       </section>
 
+      <!-- CONTAGEM REGRESSIVA -->
+      <section class="contagem" aria-label="Contagem regressiva para o cortejo">
+        <p class="contagem-legenda">Faltam para a folia</p>
+
+        <div class="contagem-grade" id="contagem" data-data="2027-02-05T18:00:00">
+          <div class="contagem-item">
+            <span class="contagem-numero" id="dias">00</span>
+            <span class="contagem-rotulo">dias</span>
+          </div>
+          <div class="contagem-item">
+            <span class="contagem-numero" id="horas">00</span>
+            <span class="contagem-rotulo">horas</span>
+          </div>
+          <div class="contagem-item">
+            <span class="contagem-numero" id="minutos">00</span>
+            <span class="contagem-rotulo">min</span>
+          </div>
+          <div class="contagem-item">
+            <span class="contagem-numero" id="segundos">00</span>
+            <span class="contagem-rotulo">seg</span>
+          </div>
+        </div>
+      </section>
+
       <!-- CORTEJO -->
       <section id="cortejo">
-        <section id="cortejo">
-          <h2>Nosso Cortejo — Carnaval 2027</h2>
+        <h2>Nosso Cortejo — Carnaval 2027</h2>
 
-          <p>
-            O Prove Primeiro convida você para celebrar o Carnaval de Belo
-            Horizonte!
-          </p>
+        <p>
+          O Prove Primeiro convida você para celebrar o Carnaval de Belo
+          Horizonte!
+        </p>
 
-          <p><strong>Data:</strong> 05 de fevereiro de 2027</p>
+        <ul class="ficha-tecnica">
+          <li><strong>Data:</strong> 05 de fevereiro de 2027</li>
+          <li><strong>Horário:</strong> 18h às 23h30</li>
+          <li>
+            <strong>Local:</strong> Rua Jaçana, nº 60 — Primeiro de Maio
+            (Praça Santo Antônio)
+          </li>
+        </ul>
 
-          <p><strong>Horário:</strong> 18h às 23h30</p>
+        <p>
+          Prepare-se para uma noite de música, cultura, alegria e muita folia
+          pelas ruas do Primeiro de Maio.
+        </p>
 
-          <p>
-            <strong>Local:</strong> Rua Jaçana, nº 60 — Primeiro de Maio (Praça
-            Santo Antônio)
-          </p>
-
-          <p>
-            Prepare-se para uma noite de música, cultura, alegria e muita folia
-            pelas ruas do Primeiro de Maio.
-          </p>
-
-          <p>
-            <strong>Venha fazer parte dessa festa!</strong>
-          </p>
-        </section>
+        <p class="chamada">
+          <strong>Venha fazer parte dessa festa!</strong>
+        </p>
       </section>
 
       <!-- ABADÁS -->
@@ -70,7 +114,7 @@
 
         <p>Garanta seu abadá e venha curtir o Carnaval com o Prove Primeiro!</p>
 
-        <a href="#" class="botao-abada"> Comprar Abadá </a>
+        <button type="button" class="botao-abada" id="abrirLoja">Comprar Abadá</button>
       </section>
 
       <!-- SOBRE NÓS -->
@@ -78,29 +122,33 @@
         <h2>Sobre Nós</h2>
 
         <p>
-          O bloco foi fundado em Agosto de 2023 com o propósito de integrar a
-          comunidade e resgatar a rica tradição cultural da região norte de Belo
-          Horizonte, que perdeu grande parte de seu potencial artístico e
-          identitário ao longo dos anos devido ao crescimento desordenado da
-          cidade. A iniciativa nasceu da união de jovens engajados no
-          território, que já atuavam coletivamente em busca de melhorias e maior
-          acesso a oportunidades para a comunidade. O nome Prove Primeiro, é uma
-          alusão aos bairros Providência e Primeiro de Maio, que lideraram esse
-          movimento. Além de funcionar como um convite, desafiando a visão
-          homogênea sobre as periferias e propondo uma experiência
-          transformadora: conhecer e valorizar o potencial cultural e artístico
-          desses territórios. Além disso, o bloco busca idealizar e retomar os
-          movimentos artísticos e as ações promovidas por antigos centros
-          culturais da região, como o Calabouço e o Cariúnas, cujas atividades
-          foram descontinuadas. Nesse contexto, o bloco surge como um movimento
-          de resgate da tradição cultural da região e como uma alternativa de
-          cultura descentralizada, reposicionando o Primeiro de Maio no percurso
-          cultural de Belo Horizonte
+          O bloco foi fundado em agosto de 2023 com o propósito de integrar a
+          comunidade e resgatar a rica tradição cultural da região norte de
+          Belo Horizonte, que perdeu grande parte de seu potencial artístico
+          e identitário ao longo dos anos devido ao crescimento desordenado
+          da cidade. A iniciativa nasceu da união de jovens engajados no
+          território, que já atuavam coletivamente em busca de melhorias e
+          maior acesso a oportunidades para a comunidade. O nome Prove
+          Primeiro é uma alusão aos bairros Providência e Primeiro de Maio,
+          que lideraram esse movimento. Além de funcionar como um convite,
+          desafia a visão homogênea sobre as periferias e propõe uma
+          experiência transformadora: conhecer e valorizar o potencial
+          cultural e artístico desses territórios.
         </p>
 
         <p>
-          Nossa folia acontece nas ruas do Primeiro de Maio, reunindo música,
-          comunidade e muita energia.
+          Além disso, o bloco busca idealizar e retomar os movimentos
+          artísticos e as ações promovidas por antigos centros culturais da
+          região, como o Calabouço e o Cariúnas, cujas atividades foram
+          descontinuadas. Nesse contexto, o bloco surge como um movimento de
+          resgate da tradição cultural da região e como uma alternativa de
+          cultura descentralizada, reposicionando o Primeiro de Maio no
+          percurso cultural de Belo Horizonte.
+        </p>
+
+        <p>
+          Nossa folia acontece nas ruas do Primeiro de Maio, reunindo
+          música, comunidade e muita energia.
         </p>
       </section>
     </main>
@@ -108,5 +156,105 @@
     <footer>
       <p>© 2027 Prove Primeiro - Carnaval de Belo Horizonte</p>
     </footer>
+
+    <!-- BOTÃO VOLTAR AO TOPO -->
+    <button class="topo-btn" id="topoBtn" aria-label="Voltar ao topo">↑</button>
+
+    <!-- LOJINHA DE ABADÁS -->
+    <div class="loja-overlay" id="lojaOverlay" hidden>
+      <div class="loja-modal" role="dialog" aria-modal="true" aria-labelledby="lojaTitulo">
+        <button class="loja-fechar" id="lojaFechar" aria-label="Fechar lojinha">×</button>
+
+        <div class="loja-corpo">
+          <!-- GALERIA DE FOTOS -->
+          <div class="loja-galeria">
+            <img
+              src="imagens/abada1.jpg"
+              alt="Foto do abadá Prove Primeiro"
+              id="lojaFotoAtual"
+              onerror="this.src='imagens/abadas.png'"
+            />
+
+            <div class="loja-galeria-controles">
+              <button type="button" id="lojaFotoAnterior" aria-label="Foto anterior">‹</button>
+              <div class="loja-galeria-pontos" id="lojaGaleriaPontos"></div>
+              <button type="button" id="lojaFotoProxima" aria-label="Próxima foto">›</button>
+            </div>
+          </div>
+
+          <!-- PASSO 1: ESCOLHAS -->
+          <div class="loja-formulario" id="lojaPasso1">
+            <h3 id="lojaTitulo">Garanta seu abadá</h3>
+
+            <fieldset class="loja-tipo">
+              <legend>O que você quer?</legend>
+
+              <label>
+                <input type="radio" name="tipo" value="abada" checked />
+                Abadá avulso
+                <span class="loja-preco-opcao" data-preco-de="abada">R$ 0,00</span>
+              </label>
+
+              <label>
+                <input type="radio" name="tipo" value="kit" />
+                Kit abadá + copo
+                <span class="loja-preco-opcao" data-preco-de="kit">R$ 0,00</span>
+              </label>
+            </fieldset>
+
+            <label class="loja-campo">
+              Tamanho
+              <select id="lojaTamanho"></select>
+            </label>
+
+            <label class="loja-campo">
+              Quantidade
+              <input type="number" id="lojaQuantidade" value="1" min="1" max="10" />
+            </label>
+
+            <label class="loja-campo">
+              Seu nome
+              <input type="text" id="lojaNomeComprador" placeholder="Como podemos te chamar?" />
+            </label>
+
+            <p class="loja-total">Total: <strong id="lojaTotal">R$ 0,00</strong></p>
+
+            <button type="button" class="botao-abada" id="lojaIrPagamento">
+              Ir para pagamento
+            </button>
+          </div>
+
+          <!-- PASSO 2: PAGAMENTO PIX -->
+          <div class="loja-pagamento" id="lojaPasso2" hidden>
+            <h3>Pagamento via Pix</h3>
+
+            <p>
+              Escaneie o QR Code ou copie o código Pix. Valor:
+              <strong id="lojaTotalPagamento">R$ 0,00</strong>
+            </p>
+
+            <img id="lojaQrCode" class="loja-qr" alt="QR Code para pagamento Pix" />
+
+            <div class="loja-pix-copia">
+              <input type="text" id="lojaPixCodigo" readonly aria-label="Código Pix copia e cola" />
+              <button type="button" id="lojaCopiarPix">Copiar</button>
+            </div>
+
+            <p class="loja-aviso">
+              Depois de pagar, toque no botão abaixo para enviar o comprovante pelo
+              WhatsApp e confirmarmos seu pedido.
+            </p>
+
+            <a class="botao-abada" id="lojaWhatsapp" target="_blank" rel="noopener">
+              Enviar comprovante no WhatsApp
+            </a>
+
+            <button type="button" class="loja-voltar" id="lojaVoltar">‹ Voltar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
   </body>
 </html>
