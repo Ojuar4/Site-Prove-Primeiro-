@@ -8,13 +8,13 @@
    ----------------------------------------- */
 
 const LOJA_CONFIG = {
-  chavePix: "proveprimeiro@financeiro.com.br", // TROQUE pela chave Pix real do bloco (e-mail, CPF/CNPJ, telefone ou chave aleatória)
-  nomeRecebedor: "PROVE PRIMEIRO",              // nome do recebedor (sem acento, até 25 caracteres)
+  chavePix: "proveprimeiro@gmail.com.", // TROQUE pela chave Pix real do bloco (e-mail, CPF/CNPJ, telefone ou chave aleatória)
+  nomeRecebedor: "Yan Lucas Araújo Jovelino",              // nome do recebedor (sem acento, até 25 caracteres)
   cidade: "BELO HORIZONTE",                     // cidade do recebedor (sem acento, até 15 caracteres)
-  whatsapp: "5531999999999",                    // TROQUE pelo WhatsApp real, com DDI 55 + DDD + número, só números
+  whatsapp: "5531998360024",                    // TROQUE pelo WhatsApp real, com DDI 55 + DDD + número, só números
   precos: {
-    abada: 90.0,
-    kit: 130.0,
+    abada: 34.99,
+    kit: 54.99,
   },
   tamanhos: ["PP", "P", "M", "G", "GG", "XG"],
   fotos: [
