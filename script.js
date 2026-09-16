@@ -8,7 +8,7 @@
    ----------------------------------------- */
 
 const LOJA_CONFIG = {
-  chavePix: "proveprimeiro@gmail.com.", // TROQUE pela chave Pix real do bloco (e-mail, CPF/CNPJ, telefone ou chave aleatória)
+  chavePix: "proveprimeiro@gmail.com", // TROQUE pela chave Pix real do bloco (e-mail, CPF/CNPJ, telefone ou chave aleatória)
   nomeRecebedor: "Yan Lucas Araújo Jovelino",              // nome do recebedor (sem acento, até 25 caracteres)
   cidade: "BELO HORIZONTE",                     // cidade do recebedor (sem acento, até 15 caracteres)
   whatsapp: "5531998360024",                    // TROQUE pelo WhatsApp real, com DDI 55 + DDD + número, só números
