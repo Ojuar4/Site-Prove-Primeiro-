@@ -4,17 +4,22 @@
 
 /* -----------------------------------------
    CONFIGURAÇÃO DA LOJINHA
-   ⚠️ TROQUE OS VALORES ABAIXO PELOS REAIS DO BLOCO
+   TROQUE OS VALORES ABAIXO PELOS REAIS DO BLOCO
    ----------------------------------------- */
 
 const LOJA_CONFIG = {
-  chavePix: "proveprimeiro@financeiro.com.br", // TROQUE pela chave Pix real do bloco (e-mail, CPF/CNPJ, telefone ou chave aleatória)
+  chavePix: "proveprimeiro@gmail.com.br", // TROQUE pela chave Pix real do bloco (e-mail, CPF/CNPJ, telefone ou chave aleatória)
   nomeRecebedor: "PROVE PRIMEIRO",              // nome do recebedor (sem acento, até 25 caracteres)
   cidade: "BELO HORIZONTE",                     // cidade do recebedor (sem acento, até 15 caracteres)
-  whatsapp: "5531999999999",                    // TROQUE pelo WhatsApp real, com DDI 55 + DDD + número, só números
+  whatsapp: "5531998360024",                    // TROQUE pelo WhatsApp real, com DDI 55 + DDD + número, só números
+
+  // URL do Google Apps Script que grava cada pedido numa planilha do Google Sheets
+  // (veja o arquivo "planilha-pedidos-apps-script.txt" para o passo a passo)
+  planilhaWebhookUrl: "COLE_AQUI_A_URL_DO_GOOGLE_APPS_SCRIPT",
+
   precos: {
-    abada: 90.0,
-    kit: 130.0,
+    abada: 45.0,
+    kit: 65.0,
   },
   tamanhos: ["PP", "P", "M", "G", "GG", "XG"],
   fotos: [
@@ -32,6 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
   configurarContagemRegressiva();
   configurarBotaoTopo();
   configurarRevelacaoDeSecoes();
+  configurarAbasRecordacoes();
   configurarLojinha();
 });
 
@@ -44,7 +50,7 @@ function criarConfetes() {
   const container = document.getElementById("confetes");
   if (!container) return;
 
-  const cores = ["#f2c14e", "#c75c3c", "#90a955", "#4f772d", "#f4e8c1"];
+  const cores = ["#f2c14e", "#f2843a", "#e0332b", "#c75c3c", "#90a955", "#4f772d", "#e8577a", "#2ec4b6"];
   const total = window.innerWidth < 600 ? 18 : 32;
 
   for (let i = 0; i < total; i++) {
@@ -150,7 +156,7 @@ function configurarContagemRegressiva() {
       elMinutos.textContent = "00";
       elSegundos.textContent = "00";
       document.querySelector(".contagem-legenda").textContent =
-        "A folia já começou! 🎉";
+        "A folia já começou!";
       clearInterval(intervalo);
       return;
     }
@@ -216,6 +222,49 @@ function configurarRevelacaoDeSecoes() {
 
 
 /* -----------------------------------------
+   ABAS DE RECORDAÇÕES (SOBRE NÓS — 2024/2025/2026)
+   ----------------------------------------- */
+
+function configurarAbasRecordacoes() {
+  const abas = document.querySelectorAll(".recordacoes-aba");
+  if (!abas.length) return;
+
+  abas.forEach((aba) => {
+    aba.addEventListener("click", () => {
+      const ano = aba.dataset.ano;
+
+      abas.forEach((outraAba) => {
+        const ativa = outraAba === aba;
+        outraAba.classList.toggle("ativa", ativa);
+        outraAba.setAttribute("aria-selected", String(ativa));
+        outraAba.tabIndex = ativa ? 0 : -1;
+      });
+
+      document.querySelectorAll(".recordacoes-painel").forEach((painel) => {
+        painel.hidden = painel.id !== "painel-" + ano;
+      });
+    });
+
+    // permite navegar entre as abas com as setas do teclado (acessibilidade)
+    aba.addEventListener("keydown", (evento) => {
+      const lista = Array.from(abas);
+      const indiceAtual = lista.indexOf(evento.currentTarget);
+      let novoIndice = null;
+
+      if (evento.key === "ArrowRight") novoIndice = (indiceAtual + 1) % lista.length;
+      if (evento.key === "ArrowLeft") novoIndice = (indiceAtual - 1 + lista.length) % lista.length;
+
+      if (novoIndice !== null) {
+        evento.preventDefault();
+        lista[novoIndice].click();
+        lista[novoIndice].focus();
+      }
+    });
+  });
+}
+
+
+/* -----------------------------------------
    LOJINHA DE ABADÁS
    ----------------------------------------- */
 
@@ -227,7 +276,7 @@ function configurarLojinha() {
 
   const passo1 = document.getElementById("lojaPasso1");
   const passo2 = document.getElementById("lojaPasso2");
-  const selectTamanho = document.getElementById("lojaTamanho");
+  const containerTamanhos = document.getElementById("lojaTamanhos");
   const inputQuantidade = document.getElementById("lojaQuantidade");
   const inputNome = document.getElementById("lojaNomeComprador");
   const totalTexto = document.getElementById("lojaTotal");
@@ -239,18 +288,13 @@ function configurarLojinha() {
   const imgQr = document.getElementById("lojaQrCode");
   const linkWhatsapp = document.getElementById("lojaWhatsapp");
 
+  // guarda o ID do pedido atual, usado para registrar/atualizar a linha na planilha
+  let idPedidoAtual = null;
+
   // preenche os preços exibidos ao lado de cada opção
   document.querySelectorAll("[data-preco-de]").forEach((el) => {
     const tipo = el.dataset.precoDe;
     el.textContent = formatarMoeda(LOJA_CONFIG.precos[tipo]);
-  });
-
-  // preenche o select de tamanhos
-  LOJA_CONFIG.tamanhos.forEach((tamanho) => {
-    const opcao = document.createElement("option");
-    opcao.value = tamanho;
-    opcao.textContent = tamanho;
-    selectTamanho.appendChild(opcao);
   });
 
   // -------- abrir / fechar --------
@@ -260,6 +304,7 @@ function configurarLojinha() {
     document.body.style.overflow = "hidden";
     passo1.hidden = false;
     passo2.hidden = true;
+    renderizarTamanhos();
     atualizarTotal();
   }
 
@@ -293,7 +338,60 @@ function configurarLojinha() {
   document
     .querySelectorAll('input[name="tipo"]')
     .forEach((r) => r.addEventListener("change", atualizarTotal));
-  inputQuantidade.addEventListener("input", atualizarTotal);
+
+  // -------- um seletor de tamanho para CADA abadá da quantidade --------
+
+  function renderizarTamanhos() {
+    const quantidade = Math.max(1, Math.min(10, parseInt(inputQuantidade.value) || 1));
+
+    // guarda os tamanhos já escolhidos para não perdê-los ao ajustar a quantidade
+    const valoresAnteriores = Array.from(
+      containerTamanhos.querySelectorAll("select")
+    ).map((select) => select.value);
+
+    containerTamanhos.innerHTML = "";
+
+    for (let i = 0; i < quantidade; i++) {
+      const item = document.createElement("div");
+      item.className = "loja-tamanho-item";
+
+      const rotulo = document.createElement("label");
+      rotulo.className = "loja-tamanho-rotulo";
+      rotulo.htmlFor = "lojaTamanho-" + i;
+      rotulo.textContent = "Abadá " + (i + 1);
+
+      const select = document.createElement("select");
+      select.id = "lojaTamanho-" + i;
+      select.dataset.itemIndice = String(i);
+
+      LOJA_CONFIG.tamanhos.forEach((tamanho) => {
+        const opcao = document.createElement("option");
+        opcao.value = tamanho;
+        opcao.textContent = tamanho;
+        select.appendChild(opcao);
+      });
+
+      // reaplica o valor escolhido antes, se esse item já existia
+      if (valoresAnteriores[i]) {
+        select.value = valoresAnteriores[i];
+      }
+
+      item.appendChild(rotulo);
+      item.appendChild(select);
+      containerTamanhos.appendChild(item);
+    }
+  }
+
+  function obterTamanhosEscolhidos() {
+    return Array.from(containerTamanhos.querySelectorAll("select")).map(
+      (select) => select.value
+    );
+  }
+
+  inputQuantidade.addEventListener("input", () => {
+    renderizarTamanhos();
+    atualizarTotal();
+  });
 
   // -------- galeria de fotos --------
 
@@ -305,6 +403,7 @@ function configurarLojinha() {
     const preco = LOJA_CONFIG.precos[tipoSelecionado()];
     const quantidade = Math.max(1, parseInt(inputQuantidade.value) || 1);
     const total = preco * quantidade;
+    const tamanhosEscolhidos = obterTamanhosEscolhidos();
 
     const payload = montarPayloadPix({
       chave: LOJA_CONFIG.chavePix,
@@ -321,23 +420,47 @@ function configurarLojinha() {
       encodeURIComponent(payload);
 
     const nomeComprador = inputNome.value.trim() || "sem nome informado";
-    const tamanho = selectTamanho.value;
     const tipoLegivel = tipoSelecionado() === "kit" ? "Kit abadá + copo" : "Abadá avulso";
+    const listaTamanhos = tamanhosEscolhidos
+      .map((tamanho, i) => `Abadá ${i + 1}: ${tamanho}`)
+      .join("\n");
 
     const mensagem =
       `Olá! Acabei de fazer o Pix do meu pedido no Prove Primeiro:\n` +
       `Nome: ${nomeComprador}\n` +
       `Item: ${tipoLegivel}\n` +
-      `Tamanho: ${tamanho}\n` +
       `Quantidade: ${quantidade}\n` +
+      `Tamanhos:\n${listaTamanhos}\n` +
       `Total pago: ${formatarMoeda(total)}\n` +
       `Segue o comprovante em anexo.`;
 
     linkWhatsapp.href =
       `https://wa.me/${LOJA_CONFIG.whatsapp}?text=${encodeURIComponent(mensagem)}`;
 
+    // registra (ou atualiza) o pedido na planilha do Google Sheets
+    idPedidoAtual = "PP" + Date.now();
+    enviarPedidoParaPlanilha({
+      idPedido: idPedidoAtual,
+      nome: nomeComprador,
+      item: tipoLegivel,
+      quantidade: quantidade,
+      tamanhos: tamanhosEscolhidos.join(", "),
+      total: total.toFixed(2),
+      status: "Pix gerado",
+    });
+
     passo1.hidden = true;
     passo2.hidden = false;
+  });
+
+  linkWhatsapp.addEventListener("click", () => {
+    if (!idPedidoAtual) return;
+
+    // atualiza a mesma linha do pedido, marcando que o comprovante foi enviado
+    enviarPedidoParaPlanilha({
+      idPedido: idPedidoAtual,
+      status: "Comprovante enviado no WhatsApp",
+    });
   });
 
   botaoVoltar.addEventListener("click", () => {
@@ -370,6 +493,7 @@ function configurarGaleria() {
 
   let indiceAtual = 0;
 
+  pontosContainer.innerHTML = "";
   LOJA_CONFIG.fotos.forEach((_, i) => {
     const ponto = document.createElement("span");
     if (i === 0) ponto.classList.add("ativo");
@@ -393,6 +517,30 @@ function configurarGaleria() {
 /* -----------------------------------------
    GERAÇÃO DO CÓDIGO PIX (PADRÃO BR CODE / EMV)
    ----------------------------------------- */
+
+/* -----------------------------------------
+   ENVIO DE PEDIDOS PARA A PLANILHA (GOOGLE SHEETS)
+   ----------------------------------------- */
+
+function enviarPedidoParaPlanilha(dados) {
+  const url = LOJA_CONFIG.planilhaWebhookUrl;
+
+  // se a URL ainda não foi configurada, não tenta enviar
+  if (!url || url.includes(httpsscript.google.com/macros/s/AKfycbwWgk1JS7NF2LNVoPhqWRcn24uBem4IXWkL2GLmApIlipldESD6BcZK_TOkwMQ8AM7dKA/exec)) return;
+
+  // "fire and forget": não trava a compra do usuário se a planilha falhar ou demorar.
+  // mode "no-cors" + Content-Type "text/plain" evita bloqueio de CORS pelo navegador
+  // (o Google Apps Script não responde ao preflight OPTIONS).
+  fetch(url, {
+    method: "POST",
+    mode: "no-cors",
+    headers: { "Content-Type": "text/plain;charset=utf-8" },
+    body: JSON.stringify(dados),
+  }).catch(() => {
+    // falha silenciosa — o pedido continua normalmente para o comprador
+  });
+}
+
 
 function formatarMoeda(valor) {
   return valor.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });

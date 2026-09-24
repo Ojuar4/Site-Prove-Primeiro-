@@ -6,7 +6,8 @@
 
     <link rel="stylesheet" href="style.css" />
 
-    <title>Prove Primeiro — Carnaval de Belo Horizonte</title>
+    <title>Se você quer então prove primeiro vai viciar depois querer se lambuzar </title>
+    
   </head>
 
   <body>
@@ -38,6 +39,11 @@
       <h1>PROVE PRIMEIRO</h1>
 
       <p>Carnaval de Belo Horizonte</p>
+
+      <p class="header-frase">
+        “Se você quer então prove primeiro, vai viciar depois querer se
+        lambuzar, quando se perceber não vai querer parar”
+      </p>
     </header>
 
     <main>
@@ -150,6 +156,132 @@
           Nossa folia acontece nas ruas do Primeiro de Maio, reunindo
           música, comunidade e muita energia.
         </p>
+
+        <!-- RECORDAÇÕES POR ANO -->
+        <div class="recordacoes">
+          <h3 class="recordacoes-titulo">Nossas Recordações</h3>
+
+          <div class="recordacoes-abas" role="tablist" aria-label="Anos do Carnaval">
+            <button
+              type="button"
+              class="recordacoes-aba ativa"
+              id="aba-2024"
+              role="tab"
+              aria-selected="true"
+              aria-controls="painel-2024"
+              data-ano="2024"
+            >
+              2024
+            </button>
+            <button
+              type="button"
+              class="recordacoes-aba"
+              id="aba-2025"
+              role="tab"
+              aria-selected="false"
+              aria-controls="painel-2025"
+              data-ano="2025"
+              tabindex="-1"
+            >
+              2025
+            </button>
+            <button
+              type="button"
+              class="recordacoes-aba"
+              id="aba-2026"
+              role="tab"
+              aria-selected="false"
+              aria-controls="painel-2026"
+              data-ano="2026"
+              tabindex="-1"
+            >
+              2026
+            </button>
+          </div>
+
+          <!-- Painel 2024 -->
+          <div
+            class="recordacoes-painel"
+            id="painel-2024"
+            role="tabpanel"
+            aria-labelledby="aba-2024"
+          >
+            <div class="recordacoes-fotos">
+              <img
+                src="imagens/recordacao-2024-1.jpg"
+                alt="Recordação do Carnaval Prove Primeiro 2024 — foto 1"
+                onerror="this.src='imagens/abadas.png'"
+              />
+              <img
+                src="imagens/recordacao-2024-2.jpg"
+                alt="Recordação do Carnaval Prove Primeiro 2024 — foto 2"
+                onerror="this.src='imagens/abadas.png'"
+              />
+            </div>
+            <p class="recordacoes-texto">
+              <!-- Troque este texto pela recordação do Carnaval 2024 -->
+              Escreva aqui como foi o nosso primeiro Carnaval: os preparativos,
+              quem esteve com a gente nas ruas do Primeiro de Maio e os
+              momentos que ficaram na memória do bloco.
+            </p>
+          </div>
+
+          <!-- Painel 2025 -->
+          <div
+            class="recordacoes-painel"
+            id="painel-2025"
+            role="tabpanel"
+            aria-labelledby="aba-2025"
+            hidden
+          >
+            <div class="recordacoes-fotos">
+              <img
+                src="imagens/recordacao-2025-1.jpg"
+                alt="Recordação do Carnaval Prove Primeiro 2025 — foto 1"
+                onerror="this.src='imagens/abadas.png'"
+              />
+              <img
+                src="imagens/recordacao-2025-2.jpg"
+                alt="Recordação do Carnaval Prove Primeiro 2025 — foto 2"
+                onerror="this.src='imagens/abadas.png'"
+              />
+            </div>
+            <p class="recordacoes-texto">
+              <!-- Troque este texto pela recordação do Carnaval 2025 -->
+              Escreva aqui as novidades do segundo ano de bloco: o crescimento
+              do cortejo, novas parcerias e os detalhes que tornaram essa
+              edição especial para a comunidade.
+            </p>
+          </div>
+
+          <!-- Painel 2026 -->
+          <div
+            class="recordacoes-painel"
+            id="painel-2026"
+            role="tabpanel"
+            aria-labelledby="aba-2026"
+            hidden
+          >
+            <div class="recordacoes-fotos">
+              <img
+                src="imagens/recordacao-2026-1.jpg"
+                alt="Recordação do Carnaval Prove Primeiro 2026 — foto 1"
+                onerror="this.src='imagens/abadas.png'"
+              />
+              <img
+                src="imagens/recordacao-2026-2.jpg"
+                alt="Recordação do Carnaval Prove Primeiro 2026 — foto 2"
+                onerror="this.src='imagens/abadas.png'"
+              />
+            </div>
+            <p class="recordacoes-texto">
+              <!-- Troque este texto pela recordação do Carnaval 2026 -->
+              Escreva aqui a recordação do Carnaval 2026: o tamanho que o
+              cortejo alcançou, os artistas e blocos parceiros e o que ficou
+              marcado antes de chegarmos em 2027.
+            </p>
+          </div>
+        </div>
       </section>
     </main>
 
@@ -203,14 +335,14 @@
             </fieldset>
 
             <label class="loja-campo">
-              Tamanho
-              <select id="lojaTamanho"></select>
-            </label>
-
-            <label class="loja-campo">
               Quantidade
               <input type="number" id="lojaQuantidade" value="1" min="1" max="10" />
             </label>
+
+            <div class="loja-tamanhos-grupo">
+              <span class="loja-tamanhos-titulo">Tamanho de cada abadá</span>
+              <div class="loja-tamanhos" id="lojaTamanhos"></div>
+            </div>
 
             <label class="loja-campo">
               Seu nome
