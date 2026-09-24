@@ -8,13 +8,18 @@
    ----------------------------------------- */
 
 const LOJA_CONFIG = {
-  chavePix: "proveprimeiro@financeiro.com.br", // TROQUE pela chave Pix real do bloco (e-mail, CPF/CNPJ, telefone ou chave aleatória)
+  chavePix: "proveprimeiro@gmail.com.br", // TROQUE pela chave Pix real do bloco (e-mail, CPF/CNPJ, telefone ou chave aleatória)
   nomeRecebedor: "PROVE PRIMEIRO",              // nome do recebedor (sem acento, até 25 caracteres)
   cidade: "BELO HORIZONTE",                     // cidade do recebedor (sem acento, até 15 caracteres)
-  whatsapp: "5531999999999",                    // TROQUE pelo WhatsApp real, com DDI 55 + DDD + número, só números
+  whatsapp: "5531998360024",                    // TROQUE pelo WhatsApp real, com DDI 55 + DDD + número, só números
+
+  // URL do Google Apps Script que grava cada pedido numa planilha do Google Sheets
+  // (veja o arquivo "planilha-pedidos-apps-script.txt" para o passo a passo)
+  planilhaWebhookUrl: "COLE_AQUI_A_URL_DO_GOOGLE_APPS_SCRIPT",
+
   precos: {
-    abada: 90.0,
-    kit: 130.0,
+    abada: 45.0,
+    kit: 65.0,
   },
   tamanhos: ["PP", "P", "M", "G", "GG", "XG"],
   fotos: [
@@ -521,7 +526,7 @@ function enviarPedidoParaPlanilha(dados) {
   const url = LOJA_CONFIG.planilhaWebhookUrl;
 
   // se a URL ainda não foi configurada, não tenta enviar
-  if (!url || url.includes(httpsscript.google.com/macros/s/AKfycbwWgk1JS7NF2LNVoPhqWRcn24uBem4IXWkL2GLmApIlipldESD6BcZK_TOkwMQ8AM7dKA/exec)) return;
+  if (!url || url.includes("https://script.google.com/macros/s/AKfycbyOE4lf0_9eXQqbf5WEZVd-eIAlCASKzlht4u_5g0tX/dev")) return;
 
   // "fire and forget": não trava a compra do usuário se a planilha falhar ou demorar.
   // mode "no-cors" + Content-Type "text/plain" evita bloqueio de CORS pelo navegador

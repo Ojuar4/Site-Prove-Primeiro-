@@ -273,34 +273,43 @@ header {
     position: relative;
 }
 
-header::after {
-    content: "🎉 🎭 🎶 🎊";
 
-    position: absolute;
-    bottom: 14px;
-
-    font-size: 22px;
-    letter-spacing: 12px;
-
-    opacity: 0.8;
-}
-
-
-/* LOGO */
+/* LOGO — exibida inteira, sem moldura/recorte */
 
 header img {
-    width: 280px;
-    max-width: 90%;
-    height: auto;
-
     display: block;
 
-    margin: 0 auto;
+    width: auto;
+    height: auto;
+    max-width: 55%;
+    max-height: 260px;
 
-    border-radius: 15px;
-    border: 4px solid #f2c14e;
+    object-fit: contain;
 
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    margin: 0 auto 18px;
+
+    filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.45))
+        drop-shadow(0 0 18px rgba(242, 193, 78, 0.35));
+
+    animation: brilhar 3.5s ease-in-out infinite;
+}
+
+@keyframes brilhar {
+    0%,
+    100% {
+        filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.45))
+            drop-shadow(0 0 18px rgba(242, 193, 78, 0.35));
+    }
+    50% {
+        filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.45))
+            drop-shadow(0 0 30px rgba(224, 51, 43, 0.55));
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    header img {
+        animation: none;
+    }
 }
 
 
@@ -676,8 +685,8 @@ section p {
 #abadas {
     background-image:
         linear-gradient(
-            rgba(242, 193, 78, 0.45),
-            rgba(242, 193, 78, 0.45)
+            rgba(38, 58, 41, 0.72),
+            rgba(38, 58, 41, 0.72)
         ),
         url("imagens/abadas.png");
 
@@ -688,7 +697,7 @@ section p {
     background-repeat: no-repeat;
 
     border-radius: 20px;
-    box-shadow: 0 0 0 3px var(--rosa-flor), 0 0 26px rgba(232, 87, 122, 0.4);
+    box-shadow: 0 0 0 3px var(--laranja-tucano), 0 0 30px rgba(242, 132, 58, 0.45);
     transition: box-shadow 0.3s;
 
     margin-top: 30px;
@@ -714,7 +723,7 @@ section p {
 }
 
 #abadas h2 {
-    color: #263a29;
+    color:#c75c3c;;
 
     font-size: 36px;
 }
@@ -723,7 +732,7 @@ section p {
 /* TEXTO */
 
 #abadas p {
-    color: #263a29;
+    color: #c75c3c;
 
     font-weight: bold;
 }
@@ -1509,5 +1518,10 @@ footer p {
     .loja-formulario,
     .loja-pagamento {
         padding: 22px 18px;
+    }
+
+    .loja-tamanhos {
+        grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+        max-height: 180px;
     }
 }
