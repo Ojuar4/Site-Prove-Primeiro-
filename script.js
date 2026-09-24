@@ -8,18 +8,13 @@
    ----------------------------------------- */
 
 const LOJA_CONFIG = {
-  chavePix: "proveprimeiro@gmail.com.br", // TROQUE pela chave Pix real do bloco (e-mail, CPF/CNPJ, telefone ou chave aleatória)
+  chavePix: "proveprimeiro@financeiro.com.br", // TROQUE pela chave Pix real do bloco (e-mail, CPF/CNPJ, telefone ou chave aleatória)
   nomeRecebedor: "PROVE PRIMEIRO",              // nome do recebedor (sem acento, até 25 caracteres)
   cidade: "BELO HORIZONTE",                     // cidade do recebedor (sem acento, até 15 caracteres)
-  whatsapp: "5531998360024",                    // TROQUE pelo WhatsApp real, com DDI 55 + DDD + número, só números
-
-  // URL do Google Apps Script que grava cada pedido numa planilha do Google Sheets
-  // (veja o arquivo "planilha-pedidos-apps-script.txt" para o passo a passo)
-  planilhaWebhookUrl: "COLE_AQUI_A_URL_DO_GOOGLE_APPS_SCRIPT",
-
+  whatsapp: "5531999999999",                    // TROQUE pelo WhatsApp real, com DDI 55 + DDD + número, só números
   precos: {
-    abada: 45.0,
-    kit: 65.0,
+    abada: 90.0,
+    kit: 130.0,
   },
   tamanhos: ["PP", "P", "M", "G", "GG", "XG"],
   fotos: [
