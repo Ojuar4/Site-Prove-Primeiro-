@@ -14,7 +14,7 @@ const LOJA_CONFIG = {
   whatsapp: "5531998360024",
 
   // COLE AQUI A URL DO SEU GOOGLE APPS SCRIPT /exec
-  planilhaWebhookUrl: "https://script.google.com/macros/s/AKfycbwWgk1JS7NF2LNVoPhqWRcn24uBem4IXWkL2GLmApIlipldESD6BcZK_TOkwMQ8AM7dKA/exec",
+  planilhaWebhookUrl: "https://script.google.com/macros/s/AKfycbyOaszv_gH3tJkFdTRvhdiW3FCr2Ho9VlugEEPIlPe4GT5F_YDDiEAJFeslPIxXD65huQ/exec",
 
   precos: {
     abada: 35.0,
@@ -997,8 +997,7 @@ function enviarPedidoParaPlanilha(dados) {
   // Não tenta enviar enquanto a URL não for configurada.
   if (
     !url ||
-    url ===
-      "https://script.google.com/macros/s/AKfycbwWgk1JS7NF2LNVoPhqWRcn24uBem4IXWkL2GLmApIlipldESD6BcZK_TOkwMQ8AM7dKA/exec"
+    url.includes("COLE_AQUI_A_URL_DO_GOOGLE_APPS_SCRIPT")
   ) {
     return;
   }
@@ -1241,5 +1240,7 @@ function calcularCrc16(texto) {
   return crc
     .toString(16)
     .toUpperCase()
+    .padStart(4, "0");
+}
     .padStart(4, "0");
 }
