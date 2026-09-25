@@ -718,7 +718,7 @@ function configurarLojinha() {
 
         const payloadPix =
           montarPayloadPix({
-            chave: LOJA_CONFIG.chavePix,
+            chave: formatarChavePix(LOJA_CONFIG.chavePix),
             nome: LOJA_CONFIG.nomeRecebedor,
             cidade: LOJA_CONFIG.cidade,
             valor: valorTotal,
@@ -1051,6 +1051,33 @@ Valor: ${formatarMoeda(valor)}
 
 Estou enviando o comprovante do pagamento.
 `.trim();
+}
+
+
+// ============================================================
+// FORMATAR CHAVE PIX
+// ============================================================
+// Chave do tipo telefone precisa estar no formato +55DDDNUMERO
+// (padrão exigido pelo Banco Central). CPF, CNPJ, e-mail e
+// chave aleatória (UUID) já vêm prontos e não são alterados.
+
+function formatarChavePix(chave) {
+  const valor = String(chave).trim();
+
+  const somenteNumeros = valor.replace(/\D/g, "");
+
+  // Telefone brasileiro sem +55: 10 dígitos (fixo) ou 11 (celular)
+  const pareceTelefoneSemDdi =
+    /^\d{10,11}$/.test(somenteNumeros) &&
+    !valor.includes("@") &&
+    !valor.includes("+") &&
+    somenteNumeros.length === valor.length;
+
+  if (pareceTelefoneSemDdi) {
+    return `+55${somenteNumeros}`;
+  }
+
+  return valor;
 }
 
 
