@@ -14,7 +14,11 @@ const LOJA_CONFIG = {
   whatsapp: "5531998360024",
 
   // COLE AQUI A URL DO SEU GOOGLE APPS SCRIPT /exec
-  planilhaWebhookUrl: "https://script.google.com/macros/s/AKfycbwWgk1JS7NF2LNVoPhqWRcn24uBem4IXWkL2GLmApIlipldESD6BcZK_TOkwMQ8AM7dKA/exec",
+  // (Extensões > Apps Script > Implantar > Gerenciar implantações > URL do "App da Web").
+  // IMPORTANTE: essa URL muda toda vez que você cria uma NOVA implantação.
+  // Se você reimplantar o script, terá que atualizar essa linha de novo.
+  planilhaWebhookUrl:
+    "https://script.google.com/macros/s/AKfycbxbdU6Fu0LOrHUnR93v_rg2Pc7jDA3L63vOioGDzszdI-284S3OWdZRBBxOQnPuBmFD/exec",
 
   precos: {
     abada: 35.0,
@@ -32,7 +36,6 @@ const LOJA_CONFIG = {
   ],
 };
 
-
 // ============================================================
 // QUANDO A PÁGINA CARREGAR
 // ============================================================
@@ -47,7 +50,6 @@ document.addEventListener("DOMContentLoaded", () => {
   configurarAbasRecordacoes();
   configurarLojinha();
 });
-
 
 // ============================================================
 // CONFETES
@@ -78,17 +80,13 @@ function criarConfetes() {
     confete.style.backgroundColor =
       cores[Math.floor(Math.random() * cores.length)];
 
-    confete.style.animationDuration =
-      `${5 + Math.random() * 7}s`;
+    confete.style.animationDuration = `${5 + Math.random() * 7}s`;
 
-    confete.style.animationDelay =
-      `${Math.random() * 5}s`;
+    confete.style.animationDelay = `${Math.random() * 5}s`;
 
-    confete.style.opacity =
-      `${0.4 + Math.random() * 0.6}`;
+    confete.style.opacity = `${0.4 + Math.random() * 0.6}`;
 
-    confete.style.transform =
-      `rotate(${Math.random() * 360}deg)`;
+    confete.style.transform = `rotate(${Math.random() * 360}deg)`;
 
     if (i % 2 === 0) {
       confete.style.borderRadius = "50%";
@@ -97,7 +95,6 @@ function criarConfetes() {
     container.appendChild(confete);
   }
 }
-
 
 // ============================================================
 // MENU MOBILE
@@ -125,15 +122,12 @@ function configurarMenuMobile() {
   });
 }
 
-
 // ============================================================
 // DESTAQUE DO MENU CONFORME A SEÇÃO
 // ============================================================
 
 function configurarDestaqueDeSecao() {
-  const secoes = document.querySelectorAll(
-    "#cortejo, #abadas, #sobre"
-  );
+  const secoes = document.querySelectorAll("#cortejo, #abadas, #sobre");
 
   const links = document.querySelectorAll("[data-nav]");
 
@@ -149,7 +143,7 @@ function configurarDestaqueDeSecao() {
         });
 
         const linkAtivo = document.querySelector(
-          `[data-nav="${entry.target.id}"]`
+          `[data-nav="${entry.target.id}"]`,
         );
 
         if (linkAtivo) {
@@ -159,12 +153,11 @@ function configurarDestaqueDeSecao() {
     },
     {
       threshold: 0.35,
-    }
+    },
   );
 
   secoes.forEach((secao) => observer.observe(secao));
 }
-
 
 // ============================================================
 // CONTAGEM REGRESSIVA
@@ -220,39 +213,27 @@ function configurarContagemRegressiva() {
 
     const totalSegundos = Math.floor(restante / 1000);
 
-    const quantidadeDias = Math.floor(
-      totalSegundos / 86400
-    );
+    const quantidadeDias = Math.floor(totalSegundos / 86400);
 
-    const quantidadeHoras = Math.floor(
-      (totalSegundos % 86400) / 3600
-    );
+    const quantidadeHoras = Math.floor((totalSegundos % 86400) / 3600);
 
-    const quantidadeMinutos = Math.floor(
-      (totalSegundos % 3600) / 60
-    );
+    const quantidadeMinutos = Math.floor((totalSegundos % 3600) / 60);
 
-    const quantidadeSegundos =
-      totalSegundos % 60;
+    const quantidadeSegundos = totalSegundos % 60;
 
-    dias.textContent =
-      String(quantidadeDias).padStart(2, "0");
+    dias.textContent = String(quantidadeDias).padStart(2, "0");
 
-    horas.textContent =
-      String(quantidadeHoras).padStart(2, "0");
+    horas.textContent = String(quantidadeHoras).padStart(2, "0");
 
-    minutos.textContent =
-      String(quantidadeMinutos).padStart(2, "0");
+    minutos.textContent = String(quantidadeMinutos).padStart(2, "0");
 
-    segundos.textContent =
-      String(quantidadeSegundos).padStart(2, "0");
+    segundos.textContent = String(quantidadeSegundos).padStart(2, "0");
   }
 
   atualizar();
 
   intervalo = setInterval(atualizar, 1000);
 }
-
 
 // ============================================================
 // BOTÃO VOLTAR AO TOPO
@@ -283,7 +264,6 @@ function configurarBotaoTopo() {
   });
 }
 
-
 // ============================================================
 // REVELAÇÃO DAS SEÇÕES
 // ============================================================
@@ -309,12 +289,11 @@ function configurarRevelacaoDeSecoes() {
     },
     {
       threshold: 0.15,
-    }
+    },
   );
 
   secoes.forEach((secao) => observer.observe(secao));
 }
-
 
 // ============================================================
 // ABAS DE RECORDAÇÕES
@@ -322,9 +301,7 @@ function configurarRevelacaoDeSecoes() {
 
 function configurarAbasRecordacoes() {
   const abas = document.querySelectorAll(".recordacoes-aba");
-  const paineis = document.querySelectorAll(
-    ".recordacoes-painel"
-  );
+  const paineis = document.querySelectorAll(".recordacoes-painel");
 
   if (!abas.length || !paineis.length) return;
 
@@ -342,8 +319,7 @@ function configurarAbasRecordacoes() {
     });
 
     paineis.forEach((painel) => {
-      painel.hidden =
-        painel.id !== `painel-${ano}`;
+      painel.hidden = painel.id !== `painel-${ano}`;
     });
   }
 
@@ -353,10 +329,7 @@ function configurarAbasRecordacoes() {
     });
 
     aba.addEventListener("keydown", (evento) => {
-      if (
-        evento.key !== "ArrowLeft" &&
-        evento.key !== "ArrowRight"
-      ) {
+      if (evento.key !== "ArrowLeft" && evento.key !== "ArrowRight") {
         return;
       }
 
@@ -364,18 +337,14 @@ function configurarAbasRecordacoes() {
 
       const listaAbas = [...abas];
 
-      const indiceAtual =
-        listaAbas.indexOf(aba);
+      const indiceAtual = listaAbas.indexOf(aba);
 
       let novoIndice;
 
       if (evento.key === "ArrowRight") {
-        novoIndice =
-          (indiceAtual + 1) % listaAbas.length;
+        novoIndice = (indiceAtual + 1) % listaAbas.length;
       } else {
-        novoIndice =
-          (indiceAtual - 1 + listaAbas.length) %
-          listaAbas.length;
+        novoIndice = (indiceAtual - 1 + listaAbas.length) % listaAbas.length;
       }
 
       listaAbas[novoIndice].focus();
@@ -385,59 +354,42 @@ function configurarAbasRecordacoes() {
   });
 }
 
-
 // ============================================================
 // LOJINHA
 // ============================================================
 
 function configurarLojinha() {
-  const overlay =
-    document.querySelector("#lojaOverlay");
+  const overlay = document.querySelector("#lojaOverlay");
 
-  const botaoAbrir =
-    document.querySelector("#abrirLoja");
+  const botaoAbrir = document.querySelector("#abrirLoja");
 
-  const botaoFechar =
-    document.querySelector("#lojaFechar");
+  const botaoFechar = document.querySelector("#lojaFechar");
 
-  const passo1 =
-    document.querySelector("#lojaPasso1");
+  const passo1 = document.querySelector("#lojaPasso1");
 
-  const passo2 =
-    document.querySelector("#lojaPasso2");
+  const passo2 = document.querySelector("#lojaPasso2");
 
-  const tamanhos =
-    document.querySelector("#lojaTamanhos");
+  const tamanhos = document.querySelector("#lojaTamanhos");
 
-  const quantidade =
-    document.querySelector("#lojaQuantidade");
+  const quantidade = document.querySelector("#lojaQuantidade");
 
-  const nomeComprador =
-    document.querySelector("#lojaNomeComprador");
+  const nomeComprador = document.querySelector("#lojaNomeComprador");
 
-  const total =
-    document.querySelector("#lojaTotal");
+  const total = document.querySelector("#lojaTotal");
 
-  const totalPagamento =
-    document.querySelector("#lojaTotalPagamento");
+  const totalPagamento = document.querySelector("#lojaTotalPagamento");
 
-  const botaoPagamento =
-    document.querySelector("#lojaIrPagamento");
+  const botaoPagamento = document.querySelector("#lojaIrPagamento");
 
-  const botaoVoltar =
-    document.querySelector("#lojaVoltar");
+  const botaoVoltar = document.querySelector("#lojaVoltar");
 
-  const botaoCopiarPix =
-    document.querySelector("#lojaCopiarPix");
+  const botaoCopiarPix = document.querySelector("#lojaCopiarPix");
 
-  const pixCodigo =
-    document.querySelector("#lojaPixCodigo");
+  const pixCodigo = document.querySelector("#lojaPixCodigo");
 
-  const qrCode =
-    document.querySelector("#lojaQrCode");
+  const qrCode = document.querySelector("#lojaQrCode");
 
-  const whatsapp =
-    document.querySelector("#lojaWhatsapp");
+  const whatsapp = document.querySelector("#lojaWhatsapp");
 
   if (!overlay || !botaoAbrir) return;
 
@@ -447,16 +399,13 @@ function configurarLojinha() {
   // PREÇOS
   // ----------------------------------------------------------
 
-  document
-    .querySelectorAll("[data-preco-de]")
-    .forEach((elemento) => {
-      const tipo = elemento.dataset.precoDe;
+  document.querySelectorAll("[data-preco-de]").forEach((elemento) => {
+    const tipo = elemento.dataset.precoDe;
 
-      if (LOJA_CONFIG.precos[tipo] !== undefined) {
-        elemento.textContent =
-          formatarMoeda(LOJA_CONFIG.precos[tipo]);
-      }
-    });
+    if (LOJA_CONFIG.precos[tipo] !== undefined) {
+      elemento.textContent = formatarMoeda(LOJA_CONFIG.precos[tipo]);
+    }
+  });
 
   // ----------------------------------------------------------
   // ABRIR LOJA
@@ -487,10 +436,7 @@ function configurarLojinha() {
   botaoAbrir.addEventListener("click", abrirLoja);
 
   if (botaoFechar) {
-    botaoFechar.addEventListener(
-      "click",
-      fecharLoja
-    );
+    botaoFechar.addEventListener("click", fecharLoja);
   }
 
   overlay.addEventListener("click", (evento) => {
@@ -500,10 +446,7 @@ function configurarLojinha() {
   });
 
   document.addEventListener("keydown", (evento) => {
-    if (
-      evento.key === "Escape" &&
-      !overlay.hidden
-    ) {
+    if (evento.key === "Escape" && !overlay.hidden) {
       fecharLoja();
     }
   });
@@ -513,14 +456,9 @@ function configurarLojinha() {
   // ----------------------------------------------------------
 
   function tipoSelecionado() {
-    const selecionado =
-      document.querySelector(
-        'input[name="tipo"]:checked'
-      );
+    const selecionado = document.querySelector('input[name="tipo"]:checked');
 
-    return selecionado
-      ? selecionado.value
-      : "abada";
+    return selecionado ? selecionado.value : "abada";
   }
 
   // ----------------------------------------------------------
@@ -531,49 +469,32 @@ function configurarLojinha() {
     const tipo = tipoSelecionado();
 
     const qtd = quantidade
-      ? Math.max(
-          1,
-          parseInt(quantidade.value, 10) || 1
-        )
+      ? Math.max(1, parseInt(quantidade.value, 10) || 1)
       : 1;
 
-    const preco =
-      LOJA_CONFIG.precos[tipo] || 0;
+    const preco = LOJA_CONFIG.precos[tipo] || 0;
 
     const valorTotal = preco * qtd;
 
     if (total) {
-      total.textContent =
-        formatarMoeda(valorTotal);
+      total.textContent = formatarMoeda(valorTotal);
     }
 
     if (totalPagamento) {
-      totalPagamento.textContent =
-        formatarMoeda(valorTotal);
+      totalPagamento.textContent = formatarMoeda(valorTotal);
     }
 
     renderizarTamanhos();
   }
 
-  document
-    .querySelectorAll('input[name="tipo"]')
-    .forEach((radio) => {
-      radio.addEventListener(
-        "change",
-        atualizarTotal
-      );
-    });
+  document.querySelectorAll('input[name="tipo"]').forEach((radio) => {
+    radio.addEventListener("change", atualizarTotal);
+  });
 
   if (quantidade) {
-    quantidade.addEventListener(
-      "input",
-      atualizarTotal
-    );
+    quantidade.addEventListener("input", atualizarTotal);
 
-    quantidade.addEventListener(
-      "change",
-      atualizarTotal
-    );
+    quantidade.addEventListener("change", atualizarTotal);
   }
 
   // ----------------------------------------------------------
@@ -584,62 +505,46 @@ function configurarLojinha() {
     if (!tamanhos) return;
 
     const qtd = quantidade
-      ? Math.max(
-          1,
-          parseInt(quantidade.value, 10) || 1
-        )
+      ? Math.max(1, parseInt(quantidade.value, 10) || 1)
       : 1;
 
-    const valoresAntigos =
-      obterTamanhosEscolhidos();
+    const valoresAntigos = obterTamanhosEscolhidos();
 
     tamanhos.innerHTML = "";
 
     for (let i = 0; i < qtd; i++) {
-      const grupo =
-        document.createElement("div");
+      const grupo = document.createElement("div");
 
-      grupo.className =
-        "loja-tamanho-item";
+      grupo.className = "loja-tamanho-item";
 
-      const label =
-        document.createElement("label");
+      const label = document.createElement("label");
 
-      label.textContent =
-        `Tamanho ${i + 1}`;
+      label.textContent = `Tamanho ${i + 1}`;
 
-      const select =
-        document.createElement("select");
+      const select = document.createElement("select");
 
-      select.name =
-        `tamanho-${i + 1}`;
+      select.name = `tamanho-${i + 1}`;
 
       select.required = true;
 
-      const opcaoInicial =
-        document.createElement("option");
+      const opcaoInicial = document.createElement("option");
 
       opcaoInicial.value = "";
-      opcaoInicial.textContent =
-        "Selecione";
+      opcaoInicial.textContent = "Selecione";
 
       select.appendChild(opcaoInicial);
 
-      LOJA_CONFIG.tamanhos.forEach(
-        (tamanho) => {
-          const opcao =
-            document.createElement("option");
+      LOJA_CONFIG.tamanhos.forEach((tamanho) => {
+        const opcao = document.createElement("option");
 
-          opcao.value = tamanho;
-          opcao.textContent = tamanho;
+        opcao.value = tamanho;
+        opcao.textContent = tamanho;
 
-          select.appendChild(opcao);
-        }
-      );
+        select.appendChild(opcao);
+      });
 
       if (valoresAntigos[i]) {
-        select.value =
-          valoresAntigos[i];
+        select.value = valoresAntigos[i];
       }
 
       grupo.appendChild(label);
@@ -652,9 +557,9 @@ function configurarLojinha() {
   function obterTamanhosEscolhidos() {
     if (!tamanhos) return [];
 
-    return [
-      ...tamanhos.querySelectorAll("select"),
-    ].map((select) => select.value);
+    return [...tamanhos.querySelectorAll("select")].map(
+      (select) => select.value,
+    );
   }
 
   // ----------------------------------------------------------
@@ -662,133 +567,95 @@ function configurarLojinha() {
   // ----------------------------------------------------------
 
   if (botaoPagamento) {
-    botaoPagamento.addEventListener(
-      "click",
-      () => {
-        const tipo = tipoSelecionado();
+    botaoPagamento.addEventListener("click", () => {
+      const tipo = tipoSelecionado();
 
-        const qtd = quantidade
-          ? Math.max(
-              1,
-              parseInt(
-                quantidade.value,
-                10
-              ) || 1
-            )
-          : 1;
+      const qtd = quantidade
+        ? Math.max(1, parseInt(quantidade.value, 10) || 1)
+        : 1;
 
-        const nome = nomeComprador
-          ? nomeComprador.value.trim()
-          : "";
+      const nome = nomeComprador ? nomeComprador.value.trim() : "";
 
-        const tamanhosEscolhidos =
-          obterTamanhosEscolhidos();
+      const tamanhosEscolhidos = obterTamanhosEscolhidos();
 
-        if (!nome) {
-          alert(
-            "Digite o nome do comprador."
-          );
+      if (!nome) {
+        alert("Digite o nome do comprador.");
 
-          if (nomeComprador) {
-            nomeComprador.focus();
-          }
-
-          return;
+        if (nomeComprador) {
+          nomeComprador.focus();
         }
 
-        if (
-          tamanhosEscolhidos.some(
-            (tamanho) => !tamanho
-          )
-        ) {
-          alert(
-            "Selecione o tamanho de todos os itens."
-          );
-
-          return;
-        }
-
-        const preco =
-          LOJA_CONFIG.precos[tipo] || 0;
-
-        const valorTotal = preco * qtd;
-
-        idPedidoAtual =
-          "PP" + Date.now();
-
-        const payloadPix =
-          montarPayloadPix({
-            chave: formatarChavePix(LOJA_CONFIG.chavePix),
-            nome: LOJA_CONFIG.nomeRecebedor,
-            cidade: LOJA_CONFIG.cidade,
-            valor: valorTotal,
-            txid: "PROVEPRIM",
-          });
-
-        if (pixCodigo) {
-          pixCodigo.value = payloadPix;
-        }
-
-        if (qrCode) {
-          qrCode.src =
-            "https://api.qrserver.com/v1/create-qr-code/" +
-            `?size=220x220&data=${encodeURIComponent(
-              payloadPix
-            )}`;
-
-          qrCode.alt =
-            "QR Code para pagamento Pix";
-        }
-
-        if (passo1) {
-          passo1.hidden = true;
-        }
-
-        if (passo2) {
-          passo2.hidden = false;
-        }
-
-        const dadosPedido = {
-          idPedido: idPedidoAtual,
-          data: new Date().toLocaleString(
-            "pt-BR"
-          ),
-          nome: nome,
-          produto:
-            tipo === "kit"
-              ? "Kit"
-              : "Abadá",
-          quantidade: qtd,
-          tamanhos:
-            tamanhosEscolhidos.join(", "),
-          valor: valorTotal,
-          status: "Pix gerado",
-        };
-
-        enviarPedidoParaPlanilha(
-          dadosPedido
-        );
-
-        if (whatsapp) {
-          const mensagem =
-            criarMensagemWhatsApp({
-              idPedido: idPedidoAtual,
-              nome,
-              tipo,
-              quantidade: qtd,
-              tamanhos:
-                tamanhosEscolhidos,
-              valor: valorTotal,
-            });
-
-          whatsapp.href =
-            `https://wa.me/${LOJA_CONFIG.whatsapp}` +
-            `?text=${encodeURIComponent(
-              mensagem
-            )}`;
-        }
+        return;
       }
-    );
+
+      if (tamanhosEscolhidos.some((tamanho) => !tamanho)) {
+        alert("Selecione o tamanho de todos os itens.");
+
+        return;
+      }
+
+      const preco = LOJA_CONFIG.precos[tipo] || 0;
+
+      const valorTotal = preco * qtd;
+
+      idPedidoAtual = "PP" + Date.now();
+
+      const payloadPix = montarPayloadPix({
+        chave: formatarChavePix(LOJA_CONFIG.chavePix),
+        nome: LOJA_CONFIG.nomeRecebedor,
+        cidade: LOJA_CONFIG.cidade,
+        valor: valorTotal,
+        txid: "PROVEPRIM",
+      });
+
+      if (pixCodigo) {
+        pixCodigo.value = payloadPix;
+      }
+
+      if (qrCode) {
+        qrCode.src =
+          "https://api.qrserver.com/v1/create-qr-code/" +
+          `?size=220x220&data=${encodeURIComponent(payloadPix)}`;
+
+        qrCode.alt = "QR Code para pagamento Pix";
+      }
+
+      if (passo1) {
+        passo1.hidden = true;
+      }
+
+      if (passo2) {
+        passo2.hidden = false;
+      }
+
+      const dadosPedido = {
+        idPedido: idPedidoAtual,
+        data: new Date().toLocaleString("pt-BR"),
+        nome: nome,
+        produto: tipo === "kit" ? "Kit" : "Abadá",
+        quantidade: qtd,
+        tamanhos: tamanhosEscolhidos.join(", "),
+        valor: valorTotal,
+        status: "Pix gerado",
+      };
+
+      enviarPedidoParaPlanilha(dadosPedido);
+
+      if (whatsapp) {
+        const mensagem = criarMensagemWhatsApp({
+          idPedido: idPedidoAtual,
+          nome,
+          tipo,
+          quantidade: qtd,
+          tamanhos: tamanhosEscolhidos,
+          valor: valorTotal,
+        });
+
+        whatsapp.href =
+          `https://wa.me/${LOJA_CONFIG.whatsapp}` +
+          `?text=${encodeURIComponent(mensagem)}`;
+      }
+    });
   }
 
   // ----------------------------------------------------------
@@ -796,18 +663,15 @@ function configurarLojinha() {
   // ----------------------------------------------------------
 
   if (botaoVoltar) {
-    botaoVoltar.addEventListener(
-      "click",
-      () => {
-        if (passo1) {
-          passo1.hidden = false;
-        }
-
-        if (passo2) {
-          passo2.hidden = true;
-        }
+    botaoVoltar.addEventListener("click", () => {
+      if (passo1) {
+        passo1.hidden = false;
       }
-    );
+
+      if (passo2) {
+        passo2.hidden = true;
+      }
+    });
   }
 
   // ----------------------------------------------------------
@@ -815,43 +679,31 @@ function configurarLojinha() {
   // ----------------------------------------------------------
 
   if (botaoCopiarPix) {
-    botaoCopiarPix.addEventListener(
-      "click",
-      async () => {
-        const codigo =
-          pixCodigo?.value || "";
+    botaoCopiarPix.addEventListener("click", async () => {
+      const codigo = pixCodigo?.value || "";
 
-        if (!codigo) return;
+      if (!codigo) return;
 
-        try {
-          await navigator.clipboard.writeText(
-            codigo
-          );
+      try {
+        await navigator.clipboard.writeText(codigo);
 
-          botaoCopiarPix.textContent =
-            "Pix copiado!";
+        botaoCopiarPix.textContent = "Pix copiado!";
 
-          setTimeout(() => {
-            botaoCopiarPix.textContent =
-              "Copiar código Pix";
-          }, 2000);
-        } catch {
-          pixCodigo.select();
+        setTimeout(() => {
+          botaoCopiarPix.textContent = "Copiar código Pix";
+        }, 2000);
+      } catch {
+        pixCodigo.select();
 
-          document.execCommand(
-            "copy"
-          );
+        document.execCommand("copy");
 
-          botaoCopiarPix.textContent =
-            "Pix copiado!";
+        botaoCopiarPix.textContent = "Pix copiado!";
 
-          setTimeout(() => {
-            botaoCopiarPix.textContent =
-              "Copiar código Pix";
-          }, 2000);
-        }
+        setTimeout(() => {
+          botaoCopiarPix.textContent = "Copiar código Pix";
+        }, 2000);
       }
-    );
+    });
   }
 
   // ----------------------------------------------------------
@@ -859,18 +711,14 @@ function configurarLojinha() {
   // ----------------------------------------------------------
 
   if (whatsapp) {
-    whatsapp.addEventListener(
-      "click",
-      () => {
-        if (!idPedidoAtual) return;
+    whatsapp.addEventListener("click", () => {
+      if (!idPedidoAtual) return;
 
-        enviarPedidoParaPlanilha({
-          idPedido: idPedidoAtual,
-          status:
-            "Comprovante enviado no WhatsApp",
-        });
-      }
-    );
+      enviarPedidoParaPlanilha({
+        idPedido: idPedidoAtual,
+        status: "Comprovante enviado no WhatsApp",
+      });
+    });
   }
 
   // ----------------------------------------------------------
@@ -880,34 +728,20 @@ function configurarLojinha() {
   configurarGaleria();
 }
 
-
 // ============================================================
 // GALERIA
 // ============================================================
 
 function configurarGaleria() {
-  const imagem =
-    document.querySelector("#lojaFotoAtual");
+  const imagem = document.querySelector("#lojaFotoAtual");
 
-  const pontos =
-    document.querySelector("#lojaGaleriaPontos");
+  const pontos = document.querySelector("#lojaGaleriaPontos");
 
-  const botaoAnterior =
-    document.querySelector(
-      "#lojaFotoAnterior"
-    );
+  const botaoAnterior = document.querySelector("#lojaFotoAnterior");
 
-  const botaoProxima =
-    document.querySelector(
-      "#lojaFotoProxima"
-    );
+  const botaoProxima = document.querySelector("#lojaFotoProxima");
 
-  if (
-    !imagem ||
-    !pontos ||
-    !botaoAnterior ||
-    !botaoProxima
-  ) {
+  if (!imagem || !pontos || !botaoAnterior || !botaoProxima) {
     return;
   }
 
@@ -918,88 +752,62 @@ function configurarGaleria() {
   let indiceAtual = 0;
 
   function renderizarGaleria() {
-    imagem.src =
-      LOJA_CONFIG.fotos[indiceAtual];
+    imagem.src = LOJA_CONFIG.fotos[indiceAtual];
 
-    imagem.alt =
-      `Produto Prove Primeiro ${indiceAtual + 1}`;
+    imagem.alt = `Produto Prove Primeiro ${indiceAtual + 1}`;
 
     pontos.innerHTML = "";
 
-    LOJA_CONFIG.fotos.forEach(
-      (_, indice) => {
-        const ponto =
-          document.createElement("button");
+    LOJA_CONFIG.fotos.forEach((_, indice) => {
+      const ponto = document.createElement("button");
 
-        ponto.type = "button";
-        ponto.className =
-          "loja-galeria-ponto";
+      ponto.type = "button";
+      ponto.className = "loja-galeria-ponto";
 
-        ponto.setAttribute(
-          "aria-label",
-          `Ver foto ${indice + 1}`
-        );
+      ponto.setAttribute("aria-label", `Ver foto ${indice + 1}`);
 
-        if (indice === indiceAtual) {
-          ponto.classList.add("ativo");
-        }
-
-        ponto.addEventListener(
-          "click",
-          () => {
-            indiceAtual = indice;
-
-            renderizarGaleria();
-          }
-        );
-
-        pontos.appendChild(ponto);
+      if (indice === indiceAtual) {
+        ponto.classList.add("ativo");
       }
-    );
+
+      ponto.addEventListener("click", () => {
+        indiceAtual = indice;
+
+        renderizarGaleria();
+      });
+
+      pontos.appendChild(ponto);
+    });
   }
 
-  botaoAnterior.addEventListener(
-    "click",
-    () => {
-      indiceAtual =
-        (indiceAtual -
-          1 +
-          LOJA_CONFIG.fotos.length) %
-        LOJA_CONFIG.fotos.length;
+  botaoAnterior.addEventListener("click", () => {
+    indiceAtual =
+      (indiceAtual - 1 + LOJA_CONFIG.fotos.length) % LOJA_CONFIG.fotos.length;
 
-      renderizarGaleria();
-    }
-  );
+    renderizarGaleria();
+  });
 
-  botaoProxima.addEventListener(
-    "click",
-    () => {
-      indiceAtual =
-        (indiceAtual + 1) %
-        LOJA_CONFIG.fotos.length;
+  botaoProxima.addEventListener("click", () => {
+    indiceAtual = (indiceAtual + 1) % LOJA_CONFIG.fotos.length;
 
-      renderizarGaleria();
-    }
-  );
+    renderizarGaleria();
+  });
 
   renderizarGaleria();
 }
-
 
 // ============================================================
 // ENVIAR PEDIDO PARA GOOGLE SHEETS
 // ============================================================
 
 function enviarPedidoParaPlanilha(dados) {
-  const url =
-    LOJA_CONFIG.planilhaWebhookUrl;
+  const url = LOJA_CONFIG.planilhaWebhookUrl;
 
   // Não tenta enviar enquanto a URL não for configurada.
-  if (
-    !url ||
-    url ===
-      "https://script.google.com/macros/s/AKfycbwWgk1JS7NF2LNVoPhqWRcn24uBem4IXWkL2GLmApIlipldESD6BcZK_TOkwMQ8AM7dKA/exec"
-  ) {
+  if (!url || url === "COLE_AQUI_A_URL_DO_APPS_SCRIPT") {
+    console.warn(
+      "planilhaWebhookUrl não configurada: cole a URL do Apps Script em LOJA_CONFIG.",
+    );
     return;
   }
 
@@ -1008,19 +816,14 @@ function enviarPedidoParaPlanilha(dados) {
     mode: "no-cors",
 
     headers: {
-      "Content-Type":
-        "text/plain;charset=utf-8",
+      "Content-Type": "text/plain;charset=utf-8",
     },
 
     body: JSON.stringify(dados),
   }).catch((erro) => {
-    console.warn(
-      "Não foi possível enviar o pedido para a planilha.",
-      erro
-    );
+    console.warn("Não foi possível enviar o pedido para a planilha.", erro);
   });
 }
-
 
 // ============================================================
 // MENSAGEM DO WHATSAPP
@@ -1034,10 +837,7 @@ function criarMensagemWhatsApp({
   tamanhos,
   valor,
 }) {
-  const produto =
-    tipo === "kit"
-      ? "Kit"
-      : "Abadá";
+  const produto = tipo === "kit" ? "Kit" : "Abadá";
 
   return `
 Olá! Quero confirmar meu pedido do Prove Primeiro.
@@ -1052,7 +852,6 @@ Valor: ${formatarMoeda(valor)}
 Estou enviando o comprovante do pagamento.
 `.trim();
 }
-
 
 // ============================================================
 // FORMATAR CHAVE PIX
@@ -1080,117 +879,50 @@ function formatarChavePix(chave) {
   return valor;
 }
 
-
 // ============================================================
 // FORMATAÇÃO DE MOEDA
 // ============================================================
 
 function formatarMoeda(valor) {
-  return Number(valor).toLocaleString(
-    "pt-BR",
-    {
-      style: "currency",
-      currency: "BRL",
-    }
-  );
+  return Number(valor).toLocaleString("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+  });
 }
-
 
 // ============================================================
 // PIX - TLV
 // ============================================================
 
 function campoTlv(id, valor) {
-  const tamanho =
-    String(valor).length
-      .toString()
-      .padStart(2, "0");
+  const tamanho = String(valor).length.toString().padStart(2, "0");
 
   return `${id}${tamanho}${valor}`;
 }
-
 
 // ============================================================
 // MONTAR PIX
 // ============================================================
 
-function montarPayloadPix({
-  chave,
-  nome,
-  cidade,
-  valor,
-  txid,
-}) {
+function montarPayloadPix({ chave, nome, cidade, valor, txid }) {
   const merchantAccount =
-    campoTlv(
-      "00",
-      "BR.GOV.BCB.PIX"
-    ) +
-    campoTlv("01", chave);
+    campoTlv("00", "BR.GOV.BCB.PIX") + campoTlv("01", chave);
 
   const payloadSemCrc =
-    campoTlv(
-      "00",
-      "01"
-    ) +
+    campoTlv("00", "01") +
+    campoTlv("26", merchantAccount) +
+    campoTlv("52", "0000") +
+    campoTlv("53", "986") +
+    campoTlv("54", Number(valor).toFixed(2)) +
+    campoTlv("58", "BR") +
+    campoTlv("59", removerAcentos(nome).substring(0, 25)) +
+    campoTlv("60", removerAcentos(cidade).substring(0, 15)) +
+    campoTlv("62", campoTlv("05", txid));
 
-    campoTlv(
-      "26",
-      merchantAccount
-    ) +
+  const crc = calcularCrc16(payloadSemCrc + "6304");
 
-    campoTlv(
-      "52",
-      "0000"
-    ) +
-
-    campoTlv(
-      "53",
-      "986"
-    ) +
-
-    campoTlv(
-      "54",
-      Number(valor).toFixed(2)
-    ) +
-
-    campoTlv(
-      "58",
-      "BR"
-    ) +
-
-    campoTlv(
-      "59",
-      removerAcentos(nome)
-        .substring(0, 25)
-    ) +
-
-    campoTlv(
-      "60",
-      removerAcentos(cidade)
-        .substring(0, 15)
-    ) +
-
-    campoTlv(
-      "62",
-      campoTlv(
-        "05",
-        txid
-      )
-    );
-
-  const crc =
-    calcularCrc16(
-      payloadSemCrc + "6304"
-    );
-
-  return (
-    payloadSemCrc +
-    "6304" +
-    crc
-  );
+  return payloadSemCrc + "6304" + crc;
 }
-
 
 // ============================================================
 // REMOVER ACENTOS
@@ -1199,13 +931,9 @@ function montarPayloadPix({
 function removerAcentos(texto) {
   return String(texto)
     .normalize("NFD")
-    .replace(
-      /[\u0300-\u036f]/g,
-      ""
-    )
+    .replace(/[\u0300-\u036f]/g, "")
     .toUpperCase();
 }
-
 
 // ============================================================
 // CRC16
@@ -1214,22 +942,12 @@ function removerAcentos(texto) {
 function calcularCrc16(texto) {
   let crc = 0xffff;
 
-  for (
-    let i = 0;
-    i < texto.length;
-    i++
-  ) {
+  for (let i = 0; i < texto.length; i++) {
     crc ^= texto.charCodeAt(i) << 8;
 
-    for (
-      let bit = 0;
-      bit < 8;
-      bit++
-    ) {
+    for (let bit = 0; bit < 8; bit++) {
       if (crc & 0x8000) {
-        crc =
-          (crc << 1) ^
-          0x1021;
+        crc = (crc << 1) ^ 0x1021;
       } else {
         crc <<= 1;
       }
@@ -1238,8 +956,5 @@ function calcularCrc16(texto) {
     }
   }
 
-  return crc
-    .toString(16)
-    .toUpperCase()
-    .padStart(4, "0");
+  return crc.toString(16).toUpperCase().padStart(4, "0");
 }

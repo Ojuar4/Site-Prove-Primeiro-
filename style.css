@@ -3,24 +3,23 @@
    Carnaval 2027 — Florescer
    ========================================================= */
 
-
 /* =========================================================
    1. CONFIGURAÇÕES GERAIS
    ========================================================= */
 
 :root {
-  --verde-escuro: #263A29;
-  --verde: #4F772D;
-  --verde-claro: #90A955;
+  --verde-escuro: #263a29;
+  --verde: #4f772d;
+  --verde-claro: #90a955;
 
-  --amarelo: #F2C14E;
-  --creme: #F4E8C1;
-  --terracota: #C75C3C;
+  --amarelo: #f2c14e;
+  --creme: #f4e8c1;
+  --terracota: #c75c3c;
 
-  --rosa: #E8577A;
-  --laranja: #F2843A;
-  --turquesa: #2EC4B6;
-  --vermelho: #E0332B;
+  --rosa: #d1667f;
+  --laranja: #e08a3e;
+  --turquesa: #2f9e93;
+  --vermelho: #c1432f;
 
   --branco: #ffffff;
   --preto: #111111;
@@ -29,19 +28,16 @@
   --raio: 18px;
 }
 
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
 }
-
 
 body {
   font-family: Arial, Helvetica, sans-serif;
@@ -52,12 +48,10 @@ body {
   overflow-x: hidden;
 }
 
-
 img {
   max-width: 100%;
   display: block;
 }
-
 
 button,
 input,
@@ -65,17 +59,14 @@ textarea {
   font-family: inherit;
 }
 
-
 button,
 a {
   -webkit-tap-highlight-color: transparent;
 }
 
-
 a {
   text-decoration: none;
 }
-
 
 /* =========================================================
    2. CONFETES
@@ -89,7 +80,6 @@ a {
   z-index: 9999;
 }
 
-
 .confetes span {
   position: absolute;
   top: -20px;
@@ -100,7 +90,6 @@ a {
   opacity: 0.9;
 }
 
-
 @keyframes cairConfete {
   0% {
     transform: translateY(-20px) rotate(0deg);
@@ -110,7 +99,6 @@ a {
     transform: translateY(110vh) rotate(720deg);
   }
 }
-
 
 /* =========================================================
    3. MENU / NAVEGAÇÃO
@@ -136,7 +124,6 @@ a {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.18);
 }
 
-
 /* Faixa gradiente abaixo do menu, como na referência */
 
 .nav::after {
@@ -149,20 +136,14 @@ a {
 
   height: 4px;
 
-  background: linear-gradient(
-    90deg,
-    var(--vermelho),
-    var(--laranja)
-  );
+  background: linear-gradient(90deg, var(--vermelho), var(--laranja));
 }
-
 
 .nav-marca {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
 
 .nav-marca img {
   width: 70px;
@@ -171,13 +152,11 @@ a {
   display: block;
 }
 
-
 .nav-links {
   display: flex;
   align-items: center;
   gap: 10px;
 }
-
 
 .nav-links a {
   color: var(--amarelo);
@@ -194,14 +173,12 @@ a {
     transform 0.25s ease;
 }
 
-
 .nav-links a:hover,
 .nav-links a.ativo {
   background-color: var(--amarelo);
   color: var(--verde-escuro);
   transform: translateY(-2px);
 }
-
 
 /* Botão do menu mobile */
 
@@ -221,7 +198,6 @@ a {
   padding: 8px;
 }
 
-
 .nav-toggle span {
   display: block;
 
@@ -236,13 +212,12 @@ a {
   transition: 0.25s ease;
 }
 
-
 /* =========================================================
    4. CABEÇALHO
    ========================================================= */
 
 header {
-  min-height: 420px;
+  min-height: 680px;
 
   display: flex;
   flex-direction: column;
@@ -251,11 +226,14 @@ header {
 
   padding: 70px 20px;
 
+  margin: 0 24px 40px;
+  border-radius: 26px;
+  border: 3px solid var(--turquesa);
+  overflow: hidden;
+  box-shadow: var(--sombra);
+
   background:
-    linear-gradient(
-      rgba(38, 58, 41, 0.80),
-      rgba(38, 58, 41, 0.88)
-    ),
+    linear-gradient(rgba(38, 58, 41, 0.8), rgba(38, 58, 41, 0.88)),
     url("imagens/background-logo.jpeg");
 
   background-size: cover;
@@ -264,15 +242,13 @@ header {
   color: var(--branco);
 }
 
-
 header > img {
-  width: 230px;
-  max-width: 75%;
+  width: 480px;
+  max-width: 85%;
   margin-bottom: 25px;
 
   filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.3));
 }
-
 
 header h1 {
   font-size: clamp(38px, 7vw, 72px);
@@ -284,7 +260,6 @@ header h1 {
   text-shadow: 3px 4px 0 rgba(0, 0, 0, 0.2);
 }
 
-
 header > p:not(.header-frase) {
   margin-top: 8px;
 
@@ -293,7 +268,6 @@ header > p:not(.header-frase) {
 
   color: var(--creme);
 }
-
 
 .header-frase {
   max-width: 800px;
@@ -307,8 +281,6 @@ header > p:not(.header-frase) {
 
   font-style: italic;
 }
-
-
 /* =========================================================
    5. SEÇÕES GERAIS
    ========================================================= */
@@ -316,7 +288,6 @@ header > p:not(.header-frase) {
 main {
   width: 100%;
 }
-
 
 section {
   position: relative;
@@ -326,7 +297,6 @@ section {
   scroll-margin-top: 80px;
 }
 
-
 section h2 {
   font-size: clamp(30px, 5vw, 48px);
 
@@ -335,7 +305,6 @@ section h2 {
   line-height: 1.2;
 }
 
-
 section p {
   max-width: 800px;
   margin: 0 auto 15px;
@@ -343,14 +312,16 @@ section p {
   font-size: 17px;
 }
 
-
 /* =========================================================
-   6. SEÇÃO INICIAL
-   Cartão com borda arredondada, como na referência
+   6. SEÇÕES EM DESTAQUE (CARTÕES)
+   Início, Cortejo, Abadás e Sobre nós compartilham o mesmo
+   cartão de cantos bem arredondados — como na referência —
+   em vez de ocupar a largura inteira da tela. Só o plano de
+   fundo e a cor da borda mudam de uma seção para outra.
    ========================================================= */
 
-.inicio {
-  min-height: 600px;
+.secao-destaque {
+  min-height: 520px;
 
   display: flex;
   flex-direction: column;
@@ -372,19 +343,11 @@ section p {
 
   box-shadow: var(--sombra);
 
-  background:
-    linear-gradient(
-      rgba(38, 58, 41, 0.55),
-      rgba(38, 58, 41, 0.72)
-    ),
-    url("imagens/fundov1.jpg");
-
   background-size: cover;
   background-position: center;
 }
 
-
-.inicio h2 {
+.secao-destaque h2 {
   color: var(--laranja);
 
   font-size: clamp(34px, 6vw, 58px);
@@ -392,8 +355,7 @@ section p {
   text-shadow: 3px 4px 0 rgba(0, 0, 0, 0.25);
 }
 
-
-.inicio p {
+.secao-destaque p {
   color: var(--branco);
 
   font-size: clamp(18px, 3vw, 25px);
@@ -401,6 +363,17 @@ section p {
   margin-bottom: 35px;
 }
 
+/* Início — cartão de abertura, um pouco mais alto que os demais */
+
+.inicio {
+  min-height: 600px;
+
+  border-color: var(--turquesa);
+
+  background:
+    linear-gradient(rgba(38, 58, 41, 0.55), rgba(38, 58, 41, 0.72)),
+    url("imagens/fundov1.jpg");
+}
 
 /* =========================================================
    7. BOTÕES
@@ -412,7 +385,6 @@ section p {
   justify-content: center;
   gap: 14px;
 }
-
 
 .botoes a,
 .botao-abada {
@@ -427,11 +399,7 @@ section p {
   border: 0;
   border-radius: 50px;
 
-  background: linear-gradient(
-    135deg,
-    var(--laranja),
-    var(--amarelo)
-  );
+  background: linear-gradient(135deg, var(--laranja), var(--amarelo));
 
   color: var(--verde-escuro);
 
@@ -448,7 +416,6 @@ section p {
     box-shadow 0.25s ease;
 }
 
-
 .botoes a:hover,
 .botao-abada:hover {
   filter: brightness(1.08);
@@ -458,11 +425,9 @@ section p {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
-
 .botao-abada {
   margin-top: 20px;
 }
-
 
 /* =========================================================
    7.1 MEDALHÕES DA SEÇÃO INICIAL
@@ -475,7 +440,6 @@ section p {
 
   margin-top: 10px;
 }
-
 
 #inicio .botoes a.botao-medalhao {
   flex-direction: column;
@@ -499,32 +463,21 @@ section p {
     box-shadow 0.3s ease;
 }
 
-
 #inicio .botoes a.botao-medalhao:nth-child(2) {
   transform: rotate(4deg);
 
-  background: linear-gradient(
-    135deg,
-    var(--rosa),
-    var(--vermelho)
-  );
+  background: linear-gradient(135deg, var(--rosa), var(--vermelho));
 
   color: var(--branco);
 }
 
-
 #inicio .botoes a.botao-medalhao:nth-child(3) {
   transform: rotate(-3deg);
 
-  background: linear-gradient(
-    135deg,
-    var(--turquesa),
-    var(--verde-claro)
-  );
+  background: linear-gradient(135deg, var(--turquesa), var(--verde-claro));
 
   color: var(--verde-escuro);
 }
-
 
 #inicio .botoes a.botao-medalhao:hover {
   transform: rotate(0deg) scale(1.08) translateY(-6px);
@@ -532,12 +485,10 @@ section p {
   box-shadow: 0 16px 34px rgba(0, 0, 0, 0.4);
 }
 
-
 .botao-icone {
   width: 32px;
   height: 32px;
 }
-
 
 .botao-icone svg {
   width: 100%;
@@ -546,13 +497,11 @@ section p {
   display: block;
 }
 
-
 .botao-texto {
   font-size: 14px;
   font-weight: bold;
   letter-spacing: 0.4px;
 }
-
 
 /* =========================================================
    8. CONTAGEM REGRESSIVA
@@ -566,14 +515,12 @@ section p {
   color: var(--verde-escuro);
 }
 
-
 .contagem-legenda {
   margin-bottom: 25px;
 
   font-size: 22px;
   font-weight: bold;
 }
-
 
 .contagem-blocos {
   display: flex;
@@ -586,7 +533,6 @@ section p {
 
   margin: 0 auto;
 }
-
 
 .contagem-item {
   min-width: 130px;
@@ -602,7 +548,6 @@ section p {
   box-shadow: var(--sombra);
 }
 
-
 .contagem-item strong {
   display: block;
 
@@ -613,7 +558,6 @@ section p {
   line-height: 1;
   color: var(--amarelo);
 }
-
 
 .contagem-item span {
   display: block;
@@ -627,42 +571,17 @@ section p {
   color: var(--creme);
 }
 
-
 /* =========================================================
    9. CORTEJO
    ========================================================= */
 
 #cortejo {
-  min-height: 600px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  color: var(--branco);
+  border-color: var(--laranja);
 
   background:
-    linear-gradient(
-      rgba(79, 119, 45, 0.82),
-      rgba(38, 58, 41, 0.90)
-    ),
+    linear-gradient(rgba(79, 119, 45, 0.82), rgba(38, 58, 41, 0.9)),
     url("imagens/cortejo.jpeg");
-
-  background-size: cover;
-  background-position: center;
 }
-
-
-#cortejo h2 {
-  color: var(--amarelo);
-}
-
-
-#cortejo p {
-  color: var(--branco);
-}
-
 
 .ficha-tecnica {
   list-style: none;
@@ -681,7 +600,6 @@ section p {
   text-align: left;
 }
 
-
 .ficha-tecnica li {
   padding: 16px 20px;
 
@@ -694,11 +612,9 @@ section p {
   color: var(--creme);
 }
 
-
 .ficha-tecnica strong {
   color: var(--amarelo);
 }
-
 
 .chamada {
   margin-top: 30px !important;
@@ -708,80 +624,29 @@ section p {
   color: var(--amarelo) !important;
 }
 
-
 /* =========================================================
    10. ABADÁS
    ========================================================= */
 
 #abadas {
-  min-height: 600px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  min-height: 500px;
-
-  color: var(--branco);
+  border-color: var(--terracota);
 
   background:
-    linear-gradient(
-      rgba(38, 58, 41, 0.70),
-      rgba(38, 58, 41, 0.85)
-    ),
-    url("imagens/abadas.png");
-
-  background-size: cover;
-  background-position: center;
+    linear-gradient(rgba(38, 58, 41, 0.7), rgba(38, 58, 41, 0.85)),
+    url("imagens/fundoabada.png");
 }
-
-
-#abadas h2 {
-  color: var(--amarelo);
-}
-
-
-#abadas p {
-  color: var(--creme);
-}
-
 
 /* =========================================================
    11. SOBRE NÓS
    ========================================================= */
 
 #sobre {
-  min-height: 600px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  color: var(--branco);
+  border-color: var(--verde-claro);
 
   background:
-    linear-gradient(
-      rgba(38, 58, 41, 0.88),
-      rgba(79, 119, 45, 0.90)
-    ),
+    linear-gradient(rgba(38, 58, 41, 0.88), rgba(79, 119, 45, 0.9)),
     url("imagens/fundov2.jpg");
-
-  background-size: cover;
-  background-position: center;
 }
-
-
-#sobre h2 {
-  color: var(--amarelo);
-}
-
-
-#sobre p {
-  color: var(--branco);
-}
-
 
 /* =========================================================
    12. RECORDAÇÕES
@@ -794,13 +659,11 @@ section p {
   margin: 55px auto 0;
 }
 
-
 .recordacoes-titulo {
   margin-bottom: 25px;
 
   color: var(--amarelo);
 }
-
 
 /* Abas */
 
@@ -814,7 +677,6 @@ section p {
 
   margin-bottom: 30px;
 }
-
 
 .recordacoes-aba {
   padding: 11px 22px;
@@ -837,7 +699,6 @@ section p {
     transform 0.25s ease;
 }
 
-
 .recordacoes-aba:hover,
 .recordacoes-aba.ativa {
   background-color: var(--amarelo);
@@ -847,18 +708,15 @@ section p {
   transform: translateY(-2px);
 }
 
-
 /* Painéis */
 
 .recordacoes-painel[hidden] {
   display: none;
 }
 
-
 .recordacoes-painel {
   animation: aparecer 0.35s ease;
 }
-
 
 @keyframes aparecer {
   from {
@@ -872,7 +730,6 @@ section p {
   }
 }
 
-
 /* Fotos */
 
 .recordacoes-fotos {
@@ -880,21 +737,20 @@ section p {
 
   grid-template-columns: repeat(2, 1fr);
 
-  gap: 18px;
+  gap: 8px;
 
   margin-bottom: 25px;
 }
 
-
 .recordacoes-fotos img {
   width: 100%;
-  height: 280px;
+  height: 380px;
 
   object-fit: cover;
 
-  border-radius: 15px;
+  border-radius: 10px;
 
-  border: 3px solid rgba(255, 255, 255, 0.65);
+  border: 2px solid rgba(255, 255, 255, 0.65);
 
   box-shadow: var(--sombra);
 
@@ -903,18 +759,15 @@ section p {
     filter 0.3s ease;
 }
 
-
 .recordacoes-fotos img:hover {
   transform: scale(1.02);
 
   filter: brightness(1.08);
 }
 
-
 .recordacoes-texto {
   color: var(--branco);
 }
-
 
 /* =========================================================
    13. ANIMAÇÃO DE ENTRADA DAS SEÇÕES
@@ -930,13 +783,11 @@ section p {
     transform 0.7s ease;
 }
 
-
 .revelar.visivel {
   opacity: 1;
 
   transform: translateY(0);
 }
-
 
 /* =========================================================
    14. RODAPÉ
@@ -952,13 +803,11 @@ footer {
   border-top: 4px solid var(--verde-claro);
 }
 
-
 footer p {
   margin: 0;
 
   font-size: 14px;
 }
-
 
 /* =========================================================
    15. BOTÃO VOLTAR AO TOPO
@@ -1000,7 +849,6 @@ footer p {
     transform 0.25s ease;
 }
 
-
 #topoBtn.visivel {
   opacity: 1;
   visibility: visible;
@@ -1008,13 +856,11 @@ footer p {
   transform: translateY(0);
 }
 
-
 #topoBtn:hover {
   background-color: var(--branco);
 
   transform: translateY(-4px);
 }
-
 
 /* =========================================================
    16. OVERLAY DA LOJINHA
@@ -1041,11 +887,9 @@ footer p {
   overflow-y: auto;
 }
 
-
 .loja-overlay[hidden] {
   display: none;
 }
-
 
 /* =========================================================
    17. MODAL DA LOJA
@@ -1066,10 +910,8 @@ footer p {
   border: 3px solid var(--turquesa);
   border-radius: 26px;
 
-  box-shadow:
-    0 25px 70px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.4);
 }
-
 
 .loja-fechar {
   position: absolute;
@@ -1085,11 +927,7 @@ footer p {
   border: 0;
   border-radius: 50%;
 
-  background: linear-gradient(
-    135deg,
-    var(--laranja),
-    var(--amarelo)
-  );
+  background: linear-gradient(135deg, var(--laranja), var(--amarelo));
 
   color: var(--verde-escuro);
 
@@ -1105,13 +943,11 @@ footer p {
     transform 0.2s ease;
 }
 
-
 .loja-fechar:hover {
   filter: brightness(1.08);
 
   transform: rotate(90deg);
 }
-
 
 /* =========================================================
    18. CORPO DA LOJA
@@ -1124,7 +960,6 @@ footer p {
 
   min-height: 600px;
 }
-
 
 /* =========================================================
    19. GALERIA DA LOJA
@@ -1143,7 +978,6 @@ footer p {
   border-radius: 23px 0 0 23px;
 }
 
-
 #lojaFotoAtual {
   width: 100%;
   height: 460px;
@@ -1157,7 +991,6 @@ footer p {
   box-shadow: var(--sombra);
 }
 
-
 .loja-galeria-controles {
   display: flex;
 
@@ -1168,7 +1001,6 @@ footer p {
 
   margin-top: 18px;
 }
-
 
 .loja-galeria-controles > button {
   width: 42px;
@@ -1188,11 +1020,9 @@ footer p {
   transition: transform 0.2s ease;
 }
 
-
 .loja-galeria-controles > button:hover {
   transform: scale(1.1);
 }
-
 
 #lojaGaleriaPontos {
   display: flex;
@@ -1201,7 +1031,6 @@ footer p {
 
   gap: 7px;
 }
-
 
 .loja-galeria-ponto {
   width: 9px;
@@ -1215,13 +1044,11 @@ footer p {
   cursor: pointer;
 }
 
-
 .loja-galeria-ponto.ativo {
   background-color: var(--amarelo);
 
   transform: scale(1.3);
 }
-
 
 /* =========================================================
    20. FORMULÁRIO DA LOJA
@@ -1236,7 +1063,6 @@ footer p {
   border-radius: 0 23px 23px 0;
 }
 
-
 /* O atributo "hidden" tem que vencer o display:flex/block
    das classes acima, senão as duas etapas (pedido e Pix)
    ficam visíveis ao mesmo tempo e a lojinha passa a rolar. */
@@ -1245,7 +1071,6 @@ footer p {
 .loja-pagamento[hidden] {
   display: none;
 }
-
 
 .loja-formulario h2,
 .loja-formulario h3,
@@ -1257,7 +1082,6 @@ footer p {
 
   font-size: 30px;
 }
-
 
 .loja-formulario > label {
   display: flex;
@@ -1274,7 +1098,6 @@ footer p {
   text-align: left;
 }
 
-
 /* =========================================================
    21. OPÇÕES DE PRODUTO
    ========================================================= */
@@ -1290,7 +1113,6 @@ footer p {
 
   border: 0;
 }
-
 
 .loja-tipos label {
   display: flex;
@@ -1316,13 +1138,11 @@ footer p {
     transform 0.2s ease;
 }
 
-
 .loja-tipos label:hover {
   border-color: var(--amarelo);
 
   transform: translateY(-2px);
 }
-
 
 .loja-tipos label:has(input:checked) {
   border-color: var(--amarelo);
@@ -1330,11 +1150,9 @@ footer p {
   background-color: rgba(242, 193, 78, 0.18);
 }
 
-
 .loja-tipos input {
   accent-color: var(--verde);
 }
-
 
 .loja-preco-opcao {
   margin-left: auto;
@@ -1343,7 +1161,6 @@ footer p {
 
   font-weight: 900;
 }
-
 
 /* =========================================================
    22. INPUTS
@@ -1372,11 +1189,9 @@ footer p {
   transition: border-color 0.2s ease;
 }
 
-
 .loja-formulario input:focus {
   border-color: var(--amarelo);
 }
-
 
 /* =========================================================
    23. TAMANHOS
@@ -1392,7 +1207,6 @@ footer p {
   margin: 12px 0 25px;
 }
 
-
 .loja-tamanho-item {
   display: flex;
   flex-direction: column;
@@ -1402,14 +1216,12 @@ footer p {
   text-align: left;
 }
 
-
 .loja-tamanho-item label {
   font-size: 13px;
   font-weight: bold;
 
   color: var(--verde-escuro);
 }
-
 
 .loja-tamanho-item select {
   min-width: 90px;
@@ -1429,7 +1241,6 @@ footer p {
 
   cursor: pointer;
 }
-
 
 /* =========================================================
    24. TOTAL DA COMPRA
@@ -1457,7 +1268,6 @@ footer p {
   font-weight: bold;
 }
 
-
 #lojaTotal,
 #lojaTotalPagamento {
   color: var(--terracota);
@@ -1466,7 +1276,6 @@ footer p {
 
   font-weight: 900;
 }
-
 
 /* =========================================================
    25. BOTÕES DA LOJA
@@ -1483,11 +1292,7 @@ footer p {
   border: 0;
   border-radius: 50px;
 
-  background: linear-gradient(
-    135deg,
-    var(--laranja),
-    var(--amarelo)
-  );
+  background: linear-gradient(135deg, var(--laranja), var(--amarelo));
 
   color: var(--verde-escuro);
 
@@ -1504,7 +1309,6 @@ footer p {
     box-shadow 0.2s ease;
 }
 
-
 #lojaIrPagamento:hover,
 #lojaCopiarPix:hover {
   filter: brightness(1.08);
@@ -1513,7 +1317,6 @@ footer p {
 
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
 }
-
 
 #lojaVoltar {
   margin-top: 15px;
@@ -1529,11 +1332,9 @@ footer p {
   cursor: pointer;
 }
 
-
 #lojaVoltar:hover {
   text-decoration: underline;
 }
-
 
 /* =========================================================
    26. PAGAMENTO PIX
@@ -1551,13 +1352,11 @@ footer p {
   text-align: center;
 }
 
-
 .loja-pagamento > p {
   max-width: 550px;
 
   margin-bottom: 20px;
 }
-
 
 #lojaQrCode {
   width: 220px;
@@ -1575,7 +1374,6 @@ footer p {
 
   box-shadow: var(--sombra);
 }
-
 
 #lojaPixCodigo {
   width: 100%;
@@ -1602,11 +1400,9 @@ footer p {
   outline: none;
 }
 
-
 #lojaPixCodigo:focus {
   border-color: var(--amarelo);
 }
-
 
 #lojaCopiarPix {
   width: auto;
@@ -1617,7 +1413,6 @@ footer p {
 
   margin-bottom: 15px;
 }
-
 
 .loja-aviso {
   max-width: 600px;
@@ -1635,7 +1430,6 @@ footer p {
   font-size: 14px;
 }
 
-
 #lojaWhatsapp {
   display: inline-flex;
 
@@ -1648,7 +1442,7 @@ footer p {
 
   border-radius: 12px;
 
-  background-color: #25D366;
+  background-color: #25d366;
 
   color: var(--branco);
 
@@ -1661,24 +1455,20 @@ footer p {
     filter 0.2s ease;
 }
 
-
 #lojaWhatsapp:hover {
   transform: translateY(-2px);
 
   filter: brightness(0.95);
 }
 
-
 /* =========================================================
    27. RESPONSIVIDADE — TABLETS
    ========================================================= */
 
 @media (max-width: 850px) {
-
   .nav {
     padding: 8px 18px;
   }
-
 
   .nav-links {
     position: absolute;
@@ -1698,11 +1488,9 @@ footer p {
     border-bottom: 3px solid var(--verde-claro);
   }
 
-
   .nav-links.aberto {
     display: flex;
   }
-
 
   .nav-links a {
     width: 100%;
@@ -1710,21 +1498,17 @@ footer p {
     text-align: center;
   }
 
-
   .nav-toggle {
     display: block;
   }
 
-
-  .inicio {
+  .secao-destaque {
     margin: 16px 16px 32px;
   }
-
 
   .loja-corpo {
     grid-template-columns: 1fr;
   }
-
 
   .loja-galeria {
     border-radius: 22px 22px 0 0;
@@ -1732,11 +1516,9 @@ footer p {
     padding: 25px;
   }
 
-
   #lojaFotoAtual {
     height: 350px;
   }
-
 
   .loja-formulario,
   .loja-pagamento {
@@ -1744,33 +1526,27 @@ footer p {
   }
 }
 
-
 /* =========================================================
    28. RESPONSIVIDADE — CELULARES
    ========================================================= */
 
 @media (max-width: 600px) {
-
   body {
     font-size: 15px;
   }
 
-
   .nav {
     min-height: 65px;
   }
-
 
   .nav-marca img {
     width: 60px;
     height: 45px;
   }
 
-
   .nav-links {
     top: 65px;
   }
-
 
   header {
     min-height: 390px;
@@ -1778,16 +1554,13 @@ footer p {
     padding: 55px 18px;
   }
 
-
   header > img {
     width: 180px;
   }
 
-
   header h1 {
     letter-spacing: 1px;
   }
-
 
   .header-frase {
     font-size: 14px;
@@ -1795,14 +1568,12 @@ footer p {
     line-height: 1.6;
   }
 
-
   section {
     padding: 65px 18px;
   }
 
-
-  .inicio {
-    min-height: 520px;
+  .secao-destaque {
+    min-height: 460px;
 
     margin: 12px 12px 28px;
 
@@ -1810,7 +1581,6 @@ footer p {
 
     background-attachment: scroll;
   }
-
 
   .botoes {
     width: 100%;
@@ -1820,11 +1590,9 @@ footer p {
     align-items: center;
   }
 
-
   .botoes a {
     width: min(100%, 280px);
   }
-
 
   #inicio .botoes {
     flex-direction: row;
@@ -1835,28 +1603,23 @@ footer p {
     gap: 18px;
   }
 
-
   #inicio .botoes a.botao-medalhao {
     width: 100px;
     height: 100px;
   }
-
 
   .botao-icone {
     width: 26px;
     height: 26px;
   }
 
-
   .botao-texto {
     font-size: 12px;
   }
 
-
   .contagem {
     padding: 50px 15px;
   }
-
 
   .contagem-blocos {
     display: grid;
@@ -1868,48 +1631,39 @@ footer p {
     gap: 10px;
   }
 
-
   .contagem-item {
     min-width: 0;
 
     padding: 18px 10px;
   }
 
-
   .contagem-item strong {
     font-size: 38px;
   }
-
 
   .ficha-tecnica {
     text-align: left;
   }
 
-
   .ficha-tecnica li {
     padding: 14px;
   }
-
 
   .recordacoes-fotos {
     grid-template-columns: 1fr;
   }
 
-
   .recordacoes-fotos img {
     height: 230px;
   }
-
 
   .recordacoes-abas {
     gap: 7px;
   }
 
-
   .recordacoes-aba {
     padding: 9px 15px;
   }
-
 
   #topoBtn {
     right: 15px;
@@ -1919,20 +1673,17 @@ footer p {
     height: 45px;
   }
 
-
   /* Loja */
 
   .loja-overlay {
     padding: 10px;
   }
 
-
   .loja-modal {
     max-height: 96vh;
 
     border-radius: 16px;
   }
-
 
   .loja-fechar {
     top: 10px;
@@ -1942,18 +1693,15 @@ footer p {
     height: 40px;
   }
 
-
   .loja-galeria {
     padding: 18px;
 
     border-radius: 16px 16px 0 0;
   }
 
-
   #lojaFotoAtual {
     height: 300px;
   }
-
 
   .loja-formulario,
   .loja-pagamento {
@@ -1962,27 +1710,22 @@ footer p {
     border-radius: 0 0 16px 16px;
   }
 
-
   .loja-formulario h2,
   .loja-pagamento h2 {
     font-size: 25px;
   }
 
-
   .loja-tipos {
     grid-template-columns: 1fr;
   }
-
 
   #lojaPixCodigo {
     max-width: 100%;
   }
 
-
   #lojaCopiarPix {
     width: 100%;
   }
-
 
   .loja-total {
     flex-direction: column;
@@ -1990,50 +1733,41 @@ footer p {
     gap: 5px;
   }
 
-
   #lojaQrCode {
     width: 200px;
     height: 200px;
   }
 }
 
-
 /* =========================================================
    29. CELULARES MUITO PEQUENOS
    ========================================================= */
 
 @media (max-width: 380px) {
-
   header > img {
     width: 150px;
   }
-
 
   .contagem-blocos {
     gap: 8px;
   }
 
-
   .contagem-item strong {
     font-size: 32px;
   }
-
 
   .recordacoes-fotos img {
     height: 200px;
   }
 
-
   .loja-galeria {
     padding: 12px;
   }
-
 
   #lojaFotoAtual {
     height: 250px;
   }
 }
-
 
 /* =========================================================
    30. ACESSIBILIDADE
@@ -2044,13 +1778,10 @@ footer p {
   outline-offset: 3px;
 }
 
-
 @media (prefers-reduced-motion: reduce) {
-
   html {
     scroll-behavior: auto;
   }
-
 
   *,
   *::before,

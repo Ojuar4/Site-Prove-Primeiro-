@@ -1,989 +1,671 @@
-<<!doctype html>
+<!doctype html>
 <html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
 
-<head>
-  <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  />
+    <meta
+      name="description"
+      content="Prove Primeiro — Carnaval de Belo Horizonte."
+    />
 
-  <meta
-    name="description"
-    content="Prove Primeiro — Carnaval de Belo Horizonte."
-  />
+    <link rel="stylesheet" href="style.css" />
 
-  <link
-    rel="stylesheet"
-    href="style.css"
-  />
+    <title>PROVE PRIMEIRO</title>
+  </head>
 
-  <title>PROVE PRIMEIRO</title>
-</head>
-
-
-<body>
-
-  <!-- =====================================================
+  <body>
+    <!-- =====================================================
        CONFETES
        Gerados automaticamente pelo JavaScript
        ===================================================== -->
 
-  <div
-    class="confetes"
-    id="confetes"
-    aria-hidden="true"
-  ></div>
+    <div class="confetes" id="confetes" aria-hidden="true"></div>
 
-
-  <!-- =====================================================
+    <!-- =====================================================
        MENU PRINCIPAL
        ===================================================== -->
 
-  <nav
-    class="nav"
-    id="nav"
-    aria-label="Navegação principal"
-  >
-
-    <a
-      href="#topo"
-      class="nav-marca"
-      aria-label="Ir para o início"
-    >
-      <img
-        src="imagens/logo.jpeg"
-        alt="Prove Primeiro"
-        id="navLogo"
-      />
-    </a>
-
-
-    <!-- BOTÃO DO MENU MOBILE -->
-
-    <button
-      type="button"
-      class="nav-toggle"
-      id="navToggle"
-      aria-label="Abrir menu"
-      aria-expanded="false"
-      aria-controls="navLinks"
-    >
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-
-
-    <!-- LINKS DO MENU -->
-
-    <div
-      class="nav-links"
-      id="navLinks"
-    >
-
-      <a
-        href="#cortejo"
-        data-nav="cortejo"
-      >
-        Cortejo
+    <nav class="nav" id="nav" aria-label="Navegação principal">
+      <a href="#topo" class="nav-marca" aria-label="Ir para o início">
+        <img src="imagens/logo.jpeg" alt="Prove Primeiro" id="navLogo" />
       </a>
 
-      <a
-        href="#abadas"
-        data-nav="abadas"
-      >
-        Abadás
-      </a>
-
-      <a
-        href="#sobre"
-        data-nav="sobre"
-      >
-        Sobre nós
-      </a>
-
-    </div>
-
-  </nav>
-
-
-  <!-- =====================================================
-       CABEÇALHO
-       ===================================================== -->
-
-  <header id="topo">
-
-    <img
-      src="imagens/logo.jpeg"
-      alt="Logo Prove Primeiro"
-      onerror="this.style.display='none'"
-    />
-
-    <h1>
-      PROVE PRIMEIRO
-    </h1>
-
-    <p>
-      Carnaval de Belo Horizonte
-    </p>
-
-    <p class="header-frase">
-      “Se você quer então prove primeiro,
-      vai viciar depois querer se lambuzar,
-      quando se perceber não vai querer parar”
-    </p>
-
-  </header>
-
-
-  <!-- =====================================================
-       CONTEÚDO PRINCIPAL
-       ===================================================== -->
-
-  <main>
-
-
-    <!-- ===================================================
-         INÍCIO
-         =================================================== -->
-
-    <section
-      class="inicio"
-      id="inicio"
-    >
-
-      <h2>
-        O Carnaval Começa Aqui
-      </h2>
-
-      <p>
-        Música, alegria, cultura e muita folia.
-      </p>
-
-
-      <!-- ÚNICOS BOTÕES DE NAVEGAÇÃO PRINCIPAIS -->
-
-      <div class="botoes">
-
-        <a href="#cortejo" class="botao-medalhao">
-          <span class="botao-icone" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="6" cy="18" r="3"></circle>
-              <circle cx="18" cy="16" r="3"></circle>
-              <path d="M9 18V6l10-2v12"></path>
-            </svg>
-          </span>
-          <span class="botao-texto">Cortejo</span>
-        </a>
-
-        <a href="#abadas" class="botao-medalhao">
-          <span class="botao-icone" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M8 4 4 7v3h3v9h10v-9h3V7l-4-3-3 2-3-2Z"></path>
-            </svg>
-          </span>
-          <span class="botao-texto">Abadás</span>
-        </a>
-
-        <a href="#sobre" class="botao-medalhao">
-          <span class="botao-icone" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 21s-7-4.35-9.5-8.5C.7 8.9 2.8 5 6.5 5c2 0 3.4 1.1 4 2.3C11.1 6.1 12.5 5 14.5 5 18.2 5 20.3 8.9 18.5 12.5 16 16.65 12 21 12 21Z"></path>
-            </svg>
-          </span>
-          <span class="botao-texto">Sobre nós</span>
-        </a>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- ===================================================
-         CONTAGEM REGRESSIVA
-         =================================================== -->
-
-    <section
-      class="contagem"
-      aria-label="Contagem regressiva para o cortejo"
-    >
-
-      <p class="contagem-legenda">
-        Faltam para a folia
-      </p>
-
-
-      <div
-        class="contagem-blocos"
-        id="contagem"
-        data-data="2027-02-05T18:00:00"
-      >
-
-        <div class="contagem-item">
-
-          <strong id="dias">
-            00
-          </strong>
-
-          <span>
-            dias
-          </span>
-
-        </div>
-
-
-        <div class="contagem-item">
-
-          <strong id="horas">
-            00
-          </strong>
-
-          <span>
-            horas
-          </span>
-
-        </div>
-
-
-        <div class="contagem-item">
-
-          <strong id="minutos">
-            00
-          </strong>
-
-          <span>
-            minutos
-          </span>
-
-        </div>
-
-
-        <div class="contagem-item">
-
-          <strong id="segundos">
-            00
-          </strong>
-
-          <span>
-            segundos
-          </span>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- ===================================================
-         CORTEJO
-         =================================================== -->
-
-    <section id="cortejo">
-
-      <h2>
-        Nosso Cortejo — Carnaval 2027
-      </h2>
-
-
-      <p>
-        O Prove Primeiro convida você para celebrar
-        o Carnaval de Belo Horizonte!
-      </p>
-
-
-      <ul class="ficha-tecnica">
-
-        <li>
-          <strong>Data:</strong>
-          05 de fevereiro de 2027
-        </li>
-
-        <li>
-          <strong>Horário:</strong>
-          18h às 23h30
-        </li>
-
-        <li>
-          <strong>Local:</strong>
-          Rua Jaçana, nº 60 — Primeiro de Maio
-          (Praça Santo Antônio)
-        </li>
-
-      </ul>
-
-
-      <p>
-        Prepare-se para uma noite de música,
-        cultura, alegria e muita folia pelas ruas
-        do Primeiro de Maio.
-      </p>
-
-
-      <p class="chamada">
-
-        <strong>
-          Venha fazer parte dessa festa!
-        </strong>
-
-      </p>
-
-    </section>
-
-
-
-    <!-- ===================================================
-         ABADÁS
-         =================================================== -->
-
-    <section id="abadas">
-
-      <h2>
-        Abadás
-      </h2>
-
-
-      <p>
-        Garanta seu abadá e venha curtir o Carnaval
-        com o Prove Primeiro!
-      </p>
-
-
-      <!-- UM ÚNICO BOTÃO DE COMPRA -->
-
-      <div class="botoes">
-
-        <button
-          type="button"
-          class="botao-abada"
-          id="abrirLoja"
-        >
-          Comprar Abadá
-        </button>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- ===================================================
-         SOBRE NÓS
-         =================================================== -->
-
-    <section id="sobre">
-
-      <h2>
-        Sobre Nós
-      </h2>
-
-
-      <p>
-        O bloco foi fundado em agosto de 2023 com o
-        propósito de integrar a comunidade e resgatar
-        a rica tradição cultural da região norte de
-        Belo Horizonte, que perdeu grande parte de seu
-        potencial artístico e identitário ao longo dos
-        anos devido ao crescimento desordenado da cidade.
-        A iniciativa nasceu da união de jovens engajados
-        no território, que já atuavam coletivamente em
-        busca de melhorias e maior acesso a oportunidades
-        para a comunidade.
-      </p>
-
-
-      <p>
-        O nome Prove Primeiro é uma alusão aos bairros
-        Providência e Primeiro de Maio, que lideraram
-        esse movimento. Além de funcionar como um convite,
-        desafia a visão homogênea sobre as periferias e
-        propõe uma experiência transformadora: conhecer
-        e valorizar o potencial cultural e artístico
-        desses territórios.
-      </p>
-
-
-      <p>
-        Além disso, o bloco busca idealizar e retomar
-        os movimentos artísticos e as ações promovidas
-        por antigos centros culturais da região, como o
-        Calabouço e o Cariúnas, cujas atividades foram
-        descontinuadas.
-      </p>
-
-
-      <p>
-        Nesse contexto, o bloco surge como um movimento
-        de resgate da tradição cultural da região e como
-        uma alternativa de cultura descentralizada,
-        reposicionando o Primeiro de Maio no percurso
-        cultural de Belo Horizonte.
-      </p>
-
-
-      <p>
-        Nossa folia acontece nas ruas do Primeiro de Maio,
-        reunindo música, comunidade e muita energia.
-      </p>
-
-
-
-      <!-- =================================================
-           RECORDAÇÕES
-           ================================================= -->
-
-      <div class="recordacoes">
-
-        <h3 class="recordacoes-titulo">
-          Nossas Recordações
-        </h3>
-
-
-        <!-- ABAS -->
-
-        <div
-          class="recordacoes-abas"
-          role="tablist"
-          aria-label="Anos do Carnaval"
-        >
-
-          <button
-            type="button"
-            class="recordacoes-aba ativa"
-            id="aba-2024"
-            role="tab"
-            aria-selected="true"
-            aria-controls="painel-2024"
-            data-ano="2024"
-            tabindex="0"
-          >
-            2024
-          </button>
-
-
-          <button
-            type="button"
-            class="recordacoes-aba"
-            id="aba-2025"
-            role="tab"
-            aria-selected="false"
-            aria-controls="painel-2025"
-            data-ano="2025"
-            tabindex="-1"
-          >
-            2025
-          </button>
-
-
-          <button
-            type="button"
-            class="recordacoes-aba"
-            id="aba-2026"
-            role="tab"
-            aria-selected="false"
-            aria-controls="painel-2026"
-            data-ano="2026"
-            tabindex="-1"
-          >
-            2026
-          </button>
-
-        </div>
-
-
-
-        <!-- ===============================================
-             2024
-             =============================================== -->
-
-        <div
-          class="recordacoes-painel"
-          id="painel-2024"
-          role="tabpanel"
-          aria-labelledby="aba-2024"
-        >
-
-          <div class="recordacoes-fotos">
-
-            <img
-              src="imagens/recordacao-2024-1.jpg"
-              alt="Recordação do Carnaval Prove Primeiro 2024 — foto 1"
-              onerror="this.src='imagens/abadas.png'"
-            />
-
-            <img
-              src="imagens/recordacao-2024-2.jpg"
-              alt="Recordação do Carnaval Prove Primeiro 2024 — foto 2"
-              onerror="this.src='imagens/abadas.png'"
-            />
-
-          </div>
-
-
-          <p class="recordacoes-texto">
-            Escreva aqui como foi o nosso primeiro Carnaval:
-            os preparativos, quem esteve com a gente nas ruas
-            do Primeiro de Maio e os momentos que ficaram na
-            memória do bloco.
-          </p>
-
-        </div>
-
-
-
-        <!-- ===============================================
-             2025
-             =============================================== -->
-
-        <div
-          class="recordacoes-painel"
-          id="painel-2025"
-          role="tabpanel"
-          aria-labelledby="aba-2025"
-          hidden
-        >
-
-          <div class="recordacoes-fotos">
-
-            <img
-              src="imagens/recordacao-2025-1.jpg"
-              alt="Recordação do Carnaval Prove Primeiro 2025 — foto 1"
-              onerror="this.src='imagens/abadas.png'"
-            />
-
-            <img
-              src="imagens/recordacao-2025-2.jpg"
-              alt="Recordação do Carnaval Prove Primeiro 2025 — foto 2"
-              onerror="this.src='imagens/abadas.png'"
-            />
-
-          </div>
-
-
-          <p class="recordacoes-texto">
-            Escreva aqui as novidades do segundo ano
-            de bloco: o crescimento do cortejo, novas
-            parcerias e os detalhes que tornaram essa
-            edição especial para a comunidade.
-          </p>
-
-        </div>
-
-
-
-        <!-- ===============================================
-             2026
-             =============================================== -->
-
-        <div
-          class="recordacoes-painel"
-          id="painel-2026"
-          role="tabpanel"
-          aria-labelledby="aba-2026"
-          hidden
-        >
-
-          <div class="recordacoes-fotos">
-
-            <img
-              src="imagens/recordacao-2026-1.jpg"
-              alt="Recordação do Carnaval Prove Primeiro 2026 — foto 1"
-              onerror="this.src='imagens/abadas.png'"
-            />
-
-            <img
-              src="imagens/recordacao-2026-2.jpg"
-              alt="Recordação do Carnaval Prove Primeiro 2026 — foto 2"
-              onerror="this.src='imagens/abadas.png'"
-            />
-
-          </div>
-
-
-          <p class="recordacoes-texto">
-            Escreva aqui a recordação do Carnaval 2026:
-            o tamanho que o cortejo alcançou, os artistas
-            e blocos parceiros e o que ficou marcado antes
-            de chegarmos em 2027.
-          </p>
-
-        </div>
-
-      </div>
-
-    </section>
-
-  </main>
-
-
-
-  <!-- =====================================================
-       RODAPÉ
-       ===================================================== -->
-
-  <footer>
-
-    <p>
-      © 2027 Prove Primeiro -
-      Carnaval de Belo Horizonte
-    </p>
-
-  </footer>
-
-
-
-  <!-- =====================================================
-       BOTÃO VOLTAR AO TOPO
-       ===================================================== -->
-
-  <button
-    type="button"
-    id="topoBtn"
-    aria-label="Voltar ao topo"
-  >
-    ↑
-  </button>
-
-
-
-  <!-- =====================================================
-       LOJINHA
-       ===================================================== -->
-
-  <div
-    class="loja-overlay"
-    id="lojaOverlay"
-    hidden
-  >
-
-    <div
-      class="loja-modal"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="lojaTitulo"
-    >
-
-
-      <!-- FECHAR -->
+      <!-- BOTÃO DO MENU MOBILE -->
 
       <button
         type="button"
-        class="loja-fechar"
-        id="lojaFechar"
-        aria-label="Fechar lojinha"
+        class="nav-toggle"
+        id="navToggle"
+        aria-label="Abrir menu"
+        aria-expanded="false"
+        aria-controls="navLinks"
       >
-        ×
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
 
+      <!-- LINKS DO MENU -->
 
+      <div class="nav-links" id="navLinks">
+        <a href="#cortejo" data-nav="cortejo"> Cortejo </a>
 
-      <div class="loja-corpo">
+        <a href="#abadas" data-nav="abadas"> Abadás </a>
 
+        <a href="#sobre" data-nav="sobre"> Sobre nós </a>
+      </div>
+    </nav>
 
-        <!-- ===============================================
+    <!-- =====================================================
+       CABEÇALHO
+       ===================================================== -->
+
+    <header id="topo">
+      <img
+        src="imagens/logo.jpeg"
+        alt="Logo Prove Primeiro"
+        onerror="this.style.display = 'none'"
+      />
+
+      <p>Carnaval de Belo Horizonte</p>
+
+      <p class="header-frase">
+        “Se você quer então prove primeiro, vai viciar depois querer se
+        lambuzar, se você quer então prove primeiro quando se perceber não vai querer parar”
+      </p>
+    </header>
+
+    <!-- =====================================================
+       CONTEÚDO PRINCIPAL
+       ===================================================== -->
+
+    <main>
+      <!-- ===================================================
+         INÍCIO
+         =================================================== -->
+
+      <section class="inicio secao-destaque" id="inicio">
+        <h2>O Carnaval Começa Aqui</h2>
+
+        <p>Música, alegria, cultura e muita folia.</p>
+
+        <!-- ÚNICOS BOTÕES DE NAVEGAÇÃO PRINCIPAIS -->
+
+        <div class="botoes">
+          <a href="#cortejo" class="botao-medalhao">
+            <span class="botao-icone" aria-hidden="true">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="6" cy="18" r="3"></circle>
+                <circle cx="18" cy="16" r="3"></circle>
+                <path d="M9 18V6l10-2v12"></path>
+              </svg>
+            </span>
+            <span class="botao-texto">Cortejo</span>
+          </a>
+
+          <a href="#abadas" class="botao-medalhao">
+            <span class="botao-icone" aria-hidden="true">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M8 4 4 7v3h3v9h10v-9h3V7l-4-3-3 2-3-2Z"></path>
+              </svg>
+            </span>
+            <span class="botao-texto">Abadás</span>
+          </a>
+
+          <a href="#sobre" class="botao-medalhao">
+            <span class="botao-icone" aria-hidden="true">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M12 21s-7-4.35-9.5-8.5C.7 8.9 2.8 5 6.5 5c2 0 3.4 1.1 4 2.3C11.1 6.1 12.5 5 14.5 5 18.2 5 20.3 8.9 18.5 12.5 16 16.65 12 21 12 21Z"
+                ></path>
+              </svg>
+            </span>
+            <span class="botao-texto">Sobre nós</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- ===================================================
+         CONTAGEM REGRESSIVA
+         =================================================== -->
+
+      <section class="contagem" aria-label="Contagem regressiva para o cortejo">
+        <p class="contagem-legenda">Faltam para a folia</p>
+
+        <div
+          class="contagem-blocos"
+          id="contagem"
+          data-data="2027-02-05T18:00:00"
+        >
+          <div class="contagem-item">
+            <strong id="dias"> 00 </strong>
+
+            <span> dias </span>
+          </div>
+
+          <div class="contagem-item">
+            <strong id="horas"> 00 </strong>
+
+            <span> horas </span>
+          </div>
+
+          <div class="contagem-item">
+            <strong id="minutos"> 00 </strong>
+
+            <span> minutos </span>
+          </div>
+
+          <div class="contagem-item">
+            <strong id="segundos"> 00 </strong>
+
+            <span> segundos </span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================
+         CORTEJO
+         =================================================== -->
+
+      <section id="cortejo" class="secao-destaque">
+        <h2>Nosso Cortejo — Carnaval 2027</h2>
+
+        <p>
+          O Prove Primeiro convida você para celebrar o Carnaval de Belo
+          Horizonte!
+        </p>
+
+        <ul class="ficha-tecnica">
+          <li>
+            <strong>Data:</strong>
+            05 de fevereiro de 2027
+          </li>
+
+          <li>
+            <strong>Horário:</strong>
+            18h às 23h30
+          </li>
+
+          <li>
+            <strong>Local:</strong>
+            Rua Jaçana, nº 60 — Primeiro de Maio (Praça Santo Antônio)
+          </li>
+        </ul>
+
+        <p>
+          Prepare-se para uma noite de música, cultura, alegria e muita folia
+          pelas ruas do Primeiro de Maio.
+        </p>
+
+        <p class="chamada">
+          <strong> Venha fazer parte dessa festa! </strong>
+        </p>
+      </section>
+
+      <!-- ===================================================
+         ABADÁS
+         =================================================== -->
+
+      <section id="abadas" class="secao-destaque">
+        <h2>Abadás</h2>
+
+        <p>Garanta seu abadá e venha curtir o Carnaval com o Prove Primeiro!</p>
+
+        <!-- UM ÚNICO BOTÃO DE COMPRA -->
+
+        <div class="botoes">
+          <button type="button" class="botao-abada" id="abrirLoja">
+            Comprar Abadá
+          </button>
+        </div>
+      </section>
+
+      <!-- ===================================================
+         SOBRE NÓS
+         =================================================== -->
+
+      <section id="sobre" class="secao-destaque">
+        <h2>Sobre Nós</h2>
+
+        <p>
+          O bloco foi fundado em agosto de 2023 com o propósito de integrar a
+          comunidade e resgatar a rica tradição cultural da região norte de Belo
+          Horizonte, que perdeu grande parte de seu potencial artístico e
+          identitário ao longo dos anos devido ao crescimento desordenado da
+          cidade. A iniciativa nasceu da união de jovens engajados no
+          território, que já atuavam coletivamente em busca de melhorias e maior
+          acesso a oportunidades para a comunidade.
+        </p>
+
+        <p>
+          O nome Prove Primeiro é uma alusão aos bairros Providência e Primeiro
+          de Maio, que lideraram esse movimento. Além de funcionar como um
+          convite, desafia a visão homogênea sobre as periferias e propõe uma
+          experiência transformadora: conhecer e valorizar o potencial cultural
+          e artístico desses territórios.
+        </p>
+
+        <p>
+          Além disso, o bloco busca idealizar e retomar os movimentos artísticos
+          e as ações promovidas por antigos centros culturais da região, como o
+          Calabouço e o Cariúnas, cujas atividades foram descontinuadas.
+        </p>
+
+        <p>
+          Nesse contexto, o bloco surge como um movimento de resgate da tradição
+          cultural da região e como uma alternativa de cultura descentralizada,
+          reposicionando o Primeiro de Maio no percurso cultural de Belo
+          Horizonte.
+        </p>
+
+        <p>
+          Nossa folia acontece nas ruas do Primeiro de Maio, reunindo música,
+          comunidade e muita energia.
+        </p>
+
+        <!-- =================================================
+           RECORDAÇÕES
+           ================================================= -->
+
+        <div class="recordacoes">
+          <h3 class="recordacoes-titulo">Nossas Recordações</h3>
+
+          <!-- ABAS -->
+
+          <div
+            class="recordacoes-abas"
+            role="tablist"
+            aria-label="Anos do Carnaval"
+          >
+            <button
+              type="button"
+              class="recordacoes-aba ativa"
+              id="aba-2024"
+              role="tab"
+              aria-selected="true"
+              aria-controls="painel-2024"
+              data-ano="2024"
+              tabindex="0"
+            >
+              2024
+            </button>
+
+            <button
+              type="button"
+              class="recordacoes-aba"
+              id="aba-2025"
+              role="tab"
+              aria-selected="false"
+              aria-controls="painel-2025"
+              data-ano="2025"
+              tabindex="-1"
+            >
+              2025
+            </button>
+
+            <button
+              type="button"
+              class="recordacoes-aba"
+              id="aba-2026"
+              role="tab"
+              aria-selected="false"
+              aria-controls="painel-2026"
+              data-ano="2026"
+              tabindex="-1"
+            >
+              2026
+            </button>
+          </div>
+
+          <!-- ===============================================
+             2024
+             =============================================== -->
+
+          <div
+            class="recordacoes-painel"
+            id="painel-2024"
+            role="tabpanel"
+            aria-labelledby="aba-2024"
+          >
+            <div class="recordacoes-fotos">
+              <img
+                src="imagens/recordacao202401.jpeg"
+                alt="Recordação do Carnaval Prove Primeiro 2024 — foto 1"
+                onerror="this.src = 'imagens/abadas.png'"
+              />
+
+              <img
+                src="imagens/recordacao202402.jpeg"
+                alt="Recordação do Carnaval Prove Primeiro 2024 — foto 2"
+                onerror="this.src = 'imagens/abadas.png'"
+              />
+            </div>
+
+            <p class="recordacoes-texto">
+              2024 — O ano em que tudo começou.  Foi a nossa primeira vez
+              colocando o Prove Primeiro na rua. Um sonho que saiu do papel,
+              ganhou música, alegria e, principalmente, ganhou vida junto com
+              cada pessoa que esteve com a gente. Ainda estávamos aprendendo,
+              descobrindo os caminhos e entendendo o tamanho do que poderíamos
+              construir. Mas naquele primeiro cortejo nasceu algo muito maior: a
+              vontade de fazer Carnaval, ocupar as ruas e criar momentos que
+              ficassem na memória. 2024 foi o nosso primeiro passo. E todo
+              grande caminho começa assim: dando o primeiro passo. 
+            </p>
+          </div>
+
+          <!-- ===============================================
+             2025
+             =============================================== -->
+
+          <div
+            class="recordacoes-painel"
+            id="painel-2025"
+            role="tabpanel"
+            aria-labelledby="aba-2025"
+            hidden
+          >
+            <div class="recordacoes-fotos">
+              <img
+                src="imagens/recordacao2025.jpeg"
+                alt="Recordação do Carnaval Prove Primeiro 2025 — foto 1"
+                onerror="this.src = 'imagens/abadas.png'"
+              />
+
+              <img
+                src="imagens/recordacao202501.jpeg"
+                alt="Recordação do Carnaval Prove Primeiro 2025 — foto 2"
+                onerror="this.src = 'imagens/abadas.png'"
+              />
+            </div>
+
+            <p class="recordacoes-texto">
+              2025 — O ano em que começamos a evoluir.  Depois da
+              experiência de 2024, voltamos para a rua com mais vontade, mais
+              aprendizado e uma visão ainda maior do que queríamos construir.
+              Começamos a melhorar nossa organização, nossa estrutura e a forma
+              de fazer o nosso Carnaval. Cada detalhe aprendido no ano anterior
+              ajudou a transformar o Prove Primeiro em um bloco mais preparado e
+              cada vez mais conectado com o público. 2025 foi sobre crescer,
+              aprender e dar mais um passo nessa história. E a cada novo
+              Carnaval, o Prove Primeiro ficava um pouco maior. 
+            </p>
+          </div>
+
+          <!-- ===============================================
+             2026
+             =============================================== -->
+
+          <div
+            class="recordacoes-painel"
+            id="painel-2026"
+            role="tabpanel"
+            aria-labelledby="aba-2026"
+            hidden
+          >
+            <div class="recordacoes-fotos">
+              <img
+                src="imagens/recordacao2026.png"
+                alt="Recordação do Carnaval Prove Primeiro 2026 — foto 1"
+                onerror="this.src = 'imagens/abadas.png'"
+              />
+
+              <img
+                src="imagens/recordacao202601.png"
+                alt="Recordação do Carnaval Prove Primeiro 2026 — foto 2"
+                onerror="this.src = 'imagens/abadas.png'"
+              />
+            </div>
+
+            <p class="recordacoes-texto">
+              2026 — O ano em que nossa produção ganhou outra dimensão. 
+              Chegamos a 2026 carregando tudo o que aprendemos nos anos
+              anteriores. A experiência de 2024 e a evolução de 2025 nos
+              permitiram colocar em prática uma produção muito mais estruturada,
+              organizada e preparada para entregar uma experiência ainda melhor.
+              Foi um ano em que percebemos o quanto o Prove Primeiro havia
+              crescido. Da ideia inicial ao trabalho de produção, dos detalhes
+              do cortejo à energia da rua, tudo passou a fazer parte de uma
+              construção cada vez mais profissional. 2026 mostrou que aquele
+              sonho que começou pequeno tinha espaço para crescer muito. E essa
+              história ainda está só começando. .
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- =====================================================
+       RODAPÉ
+       ===================================================== -->
+
+    <footer>
+      <p>© 2027 Prove Primeiro - Carnaval de Belo Horizonte</p>
+    </footer>
+
+    <!-- =====================================================
+       BOTÃO VOLTAR AO TOPO
+       ===================================================== -->
+
+    <button type="button" id="topoBtn" aria-label="Voltar ao topo">↑</button>
+
+    <!-- =====================================================
+       LOJINHA
+       ===================================================== -->
+
+    <div class="loja-overlay" id="lojaOverlay" hidden>
+      <div
+        class="loja-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="lojaTitulo"
+      >
+        <!-- FECHAR -->
+
+        <button
+          type="button"
+          class="loja-fechar"
+          id="lojaFechar"
+          aria-label="Fechar lojinha"
+        >
+          ×
+        </button>
+
+        <div class="loja-corpo">
+          <!-- ===============================================
              GALERIA
              =============================================== -->
 
-        <div class="loja-galeria">
+          <div class="loja-galeria">
+            <img
+              src="imagens/abada1.jpg"
+              alt="Foto do abadá Prove Primeiro"
+              id="lojaFotoAtual"
+              onerror="this.src = 'imagens/abadas.png'"
+            />
 
-          <img
-            src="imagens/abada1.jpg"
-            alt="Foto do abadá Prove Primeiro"
-            id="lojaFotoAtual"
-            onerror="this.src='imagens/abadas.png'"
-          />
+            <div class="loja-galeria-controles">
+              <button
+                type="button"
+                id="lojaFotoAnterior"
+                aria-label="Foto anterior"
+              >
+                ‹
+              </button>
 
+              <div
+                id="lojaGaleriaPontos"
+                aria-label="Navegação da galeria"
+              ></div>
 
-          <div class="loja-galeria-controles">
-
-            <button
-              type="button"
-              id="lojaFotoAnterior"
-              aria-label="Foto anterior"
-            >
-              ‹
-            </button>
-
-
-            <div
-              id="lojaGaleriaPontos"
-              aria-label="Navegação da galeria"
-            ></div>
-
-
-            <button
-              type="button"
-              id="lojaFotoProxima"
-              aria-label="Próxima foto"
-            >
-              ›
-            </button>
-
+              <button
+                type="button"
+                id="lojaFotoProxima"
+                aria-label="Próxima foto"
+              >
+                ›
+              </button>
+            </div>
           </div>
 
-        </div>
-
-
-
-        <!-- ===============================================
+          <!-- ===============================================
              PASSO 1 — PEDIDO
              =============================================== -->
 
-        <div
-          class="loja-formulario"
-          id="lojaPasso1"
-        >
+          <div class="loja-formulario" id="lojaPasso1">
+            <h2 id="lojaTitulo">Garanta seu abadá</h2>
 
-          <h2 id="lojaTitulo">
-            Garanta seu abadá
-          </h2>
+            <!-- PRODUTO -->
 
+            <div class="loja-tipos">
+              <label>
+                <input type="radio" name="tipo" value="abada" checked />
 
-          <!-- PRODUTO -->
+                <span> Abadá avulso </span>
 
-          <div class="loja-tipos">
+                <span class="loja-preco-opcao" data-preco-de="abada">
+                  R$ 0,00
+                </span>
+              </label>
 
-            <label>
+              <label>
+                <input type="radio" name="tipo" value="kit" />
 
-              <input
-                type="radio"
-                name="tipo"
-                value="abada"
-                checked
-              />
+                <span> Kit abadá + copo </span>
 
-              <span>
-                Abadá avulso
-              </span>
+                <span class="loja-preco-opcao" data-preco-de="kit">
+                  R$ 0,00
+                </span>
+              </label>
+            </div>
 
-              <span
-                class="loja-preco-opcao"
-                data-preco-de="abada"
-              >
-                R$ 0,00
-              </span>
-
-            </label>
-
+            <!-- QUANTIDADE -->
 
             <label>
+              Quantidade
 
               <input
-                type="radio"
-                name="tipo"
-                value="kit"
+                type="number"
+                id="lojaQuantidade"
+                value="1"
+                min="1"
+                max="10"
               />
-
-              <span>
-                Kit abadá + copo
-              </span>
-
-              <span
-                class="loja-preco-opcao"
-                data-preco-de="kit"
-              >
-                R$ 0,00
-              </span>
-
             </label>
 
+            <!-- TAMANHOS -->
+
+            <div>
+              <h3>Tamanho de cada abadá</h3>
+
+              <div id="lojaTamanhos"></div>
+            </div>
+
+            <!-- NOME -->
+
+            <label>
+              Seu nome
+
+              <input
+                type="text"
+                id="lojaNomeComprador"
+                placeholder="Como podemos te chamar?"
+                autocomplete="name"
+              />
+            </label>
+
+            <!-- TOTAL -->
+
+            <div class="loja-total">
+              Total:
+
+              <strong id="lojaTotal"> R$ 0,00 </strong>
+            </div>
+
+            <!-- PAGAMENTO -->
+
+            <button type="button" class="botao-abada" id="lojaIrPagamento">
+              Ir para pagamento
+            </button>
           </div>
 
-
-
-          <!-- QUANTIDADE -->
-
-          <label>
-
-            Quantidade
-
-            <input
-              type="number"
-              id="lojaQuantidade"
-              value="1"
-              min="1"
-              max="10"
-            />
-
-          </label>
-
-
-
-          <!-- TAMANHOS -->
-
-          <div>
-
-            <h3>
-              Tamanho de cada abadá
-            </h3>
-
-            <div
-              id="lojaTamanhos"
-            ></div>
-
-          </div>
-
-
-
-          <!-- NOME -->
-
-          <label>
-
-            Seu nome
-
-            <input
-              type="text"
-              id="lojaNomeComprador"
-              placeholder="Como podemos te chamar?"
-              autocomplete="name"
-            />
-
-          </label>
-
-
-
-          <!-- TOTAL -->
-
-          <div class="loja-total">
-
-            Total:
-
-            <strong id="lojaTotal">
-              R$ 0,00
-            </strong>
-
-          </div>
-
-
-
-          <!-- PAGAMENTO -->
-
-          <button
-            type="button"
-            class="botao-abada"
-            id="lojaIrPagamento"
-          >
-            Ir para pagamento
-          </button>
-
-        </div>
-
-
-
-        <!-- ===============================================
+          <!-- ===============================================
              PASSO 2 — PIX
              =============================================== -->
 
-        <div
-          class="loja-pagamento"
-          id="lojaPasso2"
-          hidden
-        >
+          <div class="loja-pagamento" id="lojaPasso2" hidden>
+            <h2>Pagamento via Pix</h2>
 
-          <h2>
-            Pagamento via Pix
-          </h2>
+            <p>Escaneie o QR Code ou copie o código Pix.</p>
 
+            <p class="loja-total">
+              Valor:
 
-          <p>
+              <strong id="lojaTotalPagamento"> R$ 0,00 </strong>
+            </p>
 
-            Escaneie o QR Code ou copie
-            o código Pix.
+            <!-- QR CODE -->
 
-          </p>
+            <img id="lojaQrCode" alt="QR Code para pagamento Pix" />
 
+            <!-- PIX COPIA E COLA -->
 
-          <p class="loja-total">
+            <textarea
+              id="lojaPixCodigo"
+              readonly
+              aria-label="Código Pix copia e cola"
+            ></textarea>
 
-            Valor:
+            <button type="button" id="lojaCopiarPix">Copiar código Pix</button>
 
-            <strong id="lojaTotalPagamento">
-              R$ 0,00
-            </strong>
+            <!-- AVISO -->
 
-          </p>
+            <p class="loja-aviso">
+              Depois de realizar o pagamento, envie o comprovante pelo WhatsApp
+              para confirmarmos seu pedido.
+            </p>
 
+            <!-- WHATSAPP -->
 
-          <!-- QR CODE -->
+            <a id="lojaWhatsapp" target="_blank" rel="noopener noreferrer">
+              Enviar comprovante no WhatsApp
+            </a>
 
-          <img
-            id="lojaQrCode"
-            alt="QR Code para pagamento Pix"
-          />
+            <!-- VOLTAR -->
 
-
-
-          <!-- PIX COPIA E COLA -->
-
-          <textarea
-            id="lojaPixCodigo"
-            readonly
-            aria-label="Código Pix copia e cola"
-          ></textarea>
-
-
-          <button
-            type="button"
-            id="lojaCopiarPix"
-          >
-            Copiar código Pix
-          </button>
-
-
-
-          <!-- AVISO -->
-
-          <p class="loja-aviso">
-
-            Depois de realizar o pagamento,
-            envie o comprovante pelo WhatsApp
-            para confirmarmos seu pedido.
-
-          </p>
-
-
-
-          <!-- WHATSAPP -->
-
-          <a
-            id="lojaWhatsapp"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Enviar comprovante no WhatsApp
-          </a>
-
-
-
-          <!-- VOLTAR -->
-
-          <button
-            type="button"
-            id="lojaVoltar"
-          >
-            ← Voltar
-          </button>
-
+            <button type="button" id="lojaVoltar">← Voltar</button>
+          </div>
         </div>
-
       </div>
-
     </div>
 
-  </div>
-
-
-
-  <!-- =====================================================
+    <!-- =====================================================
        JAVASCRIPT
        ===================================================== -->
 
-  <script src="script.js"></script>
-
-</body>
-
+    <script src="script.js"></script>
+  </body>
 </html>
